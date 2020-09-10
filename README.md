@@ -4,6 +4,7 @@
 
 *"Sometimes, the elegant implementation is just a function. Not a method. Not a class. Not a framework. Just a function."*
 
+## General
 The goal of this guild members is to learn the fp paradigm and not a speciffic programming language.
 Members of this guild will use the principles of fp paradigm in various programming languages like:
   - Haskell
