@@ -8,11 +8,15 @@
 The goal of this guild members is to learn the fp paradigm and not a speciffic programming language.
 Members of this guild will use the principles of fp paradigm in various programming languages like:
   - Haskell
+  - Lisp
   - F#
+  - C#
+  - Scala
+  - Clojure
   - JavaScript
   - Elm
-  - C#
   - Go
+  - Rust
 
 Because we all need a common language to communicate and share ideas we will learn and embrace the following languages:
   - Lambda Calcullus
