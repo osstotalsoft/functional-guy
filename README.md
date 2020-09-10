@@ -1,5 +1,6 @@
 # functional-guy
 ##### Functional Programming Guild - for Great Good!
+<img src="logo.png" width="200" height="200" />
 
 *"Sometimes, the elegant implementation is just a function. Not a method. Not a class. Not a framework. Just a function."*
 
@@ -53,7 +54,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters)
   - [10. Real World Haskell by Bryan O'Sullivan, Don Stewart, and John Goerzen](http://book.realworldhaskell.org/read/)
   
-  
+
 ## Haskell articles
   - [Vasile Cuzmin - Getting started with Haskell](https://github.com/VCuzmin/Haskell)
   - [Lexi Lambda - An opinionated guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
