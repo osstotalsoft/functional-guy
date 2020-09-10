@@ -2,7 +2,7 @@
 ##### Functional Programming Guild - for Great Good!
 <img src="logo.png" width="200" height="200" />
 
-*"Sometimes, the elegant implementation is just a function. Not a method. Not a class. Not a framework. Just a function."*
+*Can programming be liberated from the von Neumann style?*
 
 ## General
 The goal of this guild members is to learn the fp paradigm and not a speciffic programming language.
