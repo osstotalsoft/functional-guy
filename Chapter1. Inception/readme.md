@@ -6,6 +6,7 @@
    - the Lambda Calcullus
 
 ## Curricula
+  - [The Rise and Fall and Rise of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
   - ["Propositions as Types" by Philip Wadler](https://www.youtube.com/watch?v=IOiZatlZtGU)
   - [David Hilbert](https://en.wikipedia.org/wiki/David_Hilbert)
   - [Entscheidungsproblem](https://en.wikipedia.org/wiki/Entscheidungsproblem)
@@ -15,6 +16,7 @@
   - [Lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus)
   - [Alan Turing](https://en.wikipedia.org/wiki/Alan_Turing)
   - [The Turing Machine](https://en.wikipedia.org/wiki/Turing_machine)
+  - [Church–Turing thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis#:~:text=It%20states%20that%20a%20function,the%20British%20mathematician%20Alan%20Turing.)
   - Christopher Allen, Julie Moronuki - Haskell programming from first principles - 2016 - Chapter1 All You Need is Lambda
 
 ## Exercises
