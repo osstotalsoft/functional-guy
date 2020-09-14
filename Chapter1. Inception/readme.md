@@ -1,9 +1,11 @@
 # Chapter1. Inception
 
 ## Goals
-  The goal of this chapter is to learn some of the history of Effective Computability and understand the two most important models of computability:
-   - the Turing Machine
-   - the Lambda Calcullus
+  The goal of this chapter is to learn some of the history of Effective Computability and understand the two most important models of computability: the Turing Machine and the Lambda Calcullus
+  After completing this chapter one should understand:
+    - Lambda calculus as a formal system for expressing programs
+    - the substitution model for function application
+    - applicative vs normal evaluation order
 
 ## Curricula
   - [The Rise and Fall and Rise of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
@@ -17,7 +19,9 @@
   - [Alan Turing](https://en.wikipedia.org/wiki/Alan_Turing)
   - [The Turing Machine](https://en.wikipedia.org/wiki/Turing_machine)
   - [Church–Turing thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis#:~:text=It%20states%20that%20a%20function,the%20British%20mathematician%20Alan%20Turing.)
-  - Christopher Allen, Julie Moronuki - Haskell programming from first principles - 2016 - Chapter1 All You Need is Lambda
+  - Chapter1. All You Need is Lambda - Christopher Allen, Julie Moronuki - Haskell programming from first principles
+  - [Applicative vs Normal evaluation form](https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf)
+  - [1.1.5 The substitution model for procedure application](https://sarabander.github.io/sicp/html/1_002e1.xhtml#g_t1_002e1_002e5)
 
 ## Exercises
   - Chapter Exercises

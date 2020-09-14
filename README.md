@@ -45,6 +45,7 @@ During our meetings and presentations we will try to connect our ideas with impl
 ## FP articles
   - [The Rise and Fall and Rise of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
   - [THINGS I WISH SOMEONE HAD EXPLAINED ABOUT FUNCTIONAL PROGRAMMING](https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/)
+  - [Applicative vs Normal evaluation form](https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf)
 
 
 ## FP Video
@@ -57,12 +58,24 @@ During our meetings and presentations we will try to connect our ideas with impl
   - Christopher Allen, Julie Moronuki - Haskell programming from first principles - 2016
   - Get Programming with Haskell by Will Kurt
   - [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters)
-  - [10. Real World Haskell by Bryan O'Sullivan, Don Stewart, and John Goerzen](http://book.realworldhaskell.org/read/)
+  - [Real World Haskell by Bryan O'Sullivan, Don Stewart, and John Goerzen](http://book.realworldhaskell.org/read/)
   
 
 ## Haskell articles
   - [Vasile Cuzmin - Getting started with Haskell](https://github.com/VCuzmin/Haskell)
   - [Lexi Lambda - An opinionated guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
+  - [Stack vs. Platform vs. Cabal](https://stackoverflow.com/questions/48733970/how-to-install-haskell-platform-or-stack-in-2018-on-linux)
+  - [Haskell vs. Ada vs. C++ vs. Awk vs. ...An Experiment in Software Prototyping Productivity](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.368.1058&rep=rep1&type=pdf)
+
+## Haskell tools
+  - [Hoogle](https://hoogle.haskell.org/)
+  - [The Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/)
+  - [Haskell Platform](https://www.haskell.org/platform/)
+
+## Other
+  - [Structure and interpretation of computer programs MIT](https://sarabander.github.io/sicp/html/index.xhtml#SEC_Contents)
+  - [Fantasy Land](https://github.com/fantasyland/fantasy-land/blob/master/README.md)
+  - [Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
   
 
 
