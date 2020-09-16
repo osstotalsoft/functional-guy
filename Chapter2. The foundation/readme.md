@@ -1,4 +1,4 @@
-# Chapter1. Inception
+# Chapter2. The foundation
 
 ## Goals
   The goal of this chapter is to understand why functional programming matters and get acquainted with Haskell programming language
