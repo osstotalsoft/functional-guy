@@ -2,10 +2,11 @@
 
 ## Goals
   The goal of this chapter is to learn some of the history of Effective Computability and understand the two most important models of computability: the Turing Machine and the Lambda Calcullus
+
   After completing this chapter one should understand:
-    - Lambda calculus as a formal system for expressing programs
-    - the substitution model for function application
-    - applicative vs normal evaluation order
+  - Lambda Calculus as a formal system for expressing programs
+  - the substitution model for function application
+  - applicative vs normal evaluation order
 
 ## Curricula
   - [The Rise and Fall and Rise of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
