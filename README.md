@@ -68,7 +68,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Haskell vs. Ada vs. C++ vs. Awk vs. ...An Experiment in Software Prototyping Productivity](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.368.1058&rep=rep1&type=pdf)
 
 ## Haskell tools
-  - [Hoogle](https://hoogle.haskell.org/)
+  - [Hoogle](https://hoogle.haskell.org/) - This link is an interesant one due to you can seek your function by its type/definition. Just fill the definition in the search box!  
   - [The Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/)
   - [Haskell Platform](https://www.haskell.org/platform/)
 
