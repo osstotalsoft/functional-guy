@@ -76,6 +76,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Structure and interpretation of computer programs MIT](https://sarabander.github.io/sicp/html/index.xhtml#SEC_Contents)
   - [Fantasy Land](https://github.com/fantasyland/fantasy-land/blob/master/README.md)
   - [Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
+  - [Ploeh - the IO container](https://blog.ploeh.dk/2020/06/08/the-io-container/)
   
 
 
