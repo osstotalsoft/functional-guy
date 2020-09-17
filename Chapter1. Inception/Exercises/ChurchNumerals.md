@@ -1,0 +1,36 @@
+# Church Numerals
+Church numerals are the representations of natural numbers under Church encoding. The higher-order function that represents natural number n is a function that maps any function f to its n-fold composition.
+
+```
+zero  = λf.λx.x
+one   = λf.λx.fx
+two   = λf.λx.f(fx)
+three = λf.λx.f(f(fx))
+```
+
+You can recover normal integer by applying the church numerals functions to the succ function and 0.
+
+```
+succ  = λx.x+1
+show = λn.n(λx.x+1)0
+
+show one = (λn.n(λx.x+1)0)(λf.λx.fx)
+         = (λf.λx.fx)(λx.x+1)0
+         = (λx.(λx.x+1)x)0
+         = (λx.x+1)0
+         = 0+1
+         = 1
+```
+
+## Combinators
+```
+add  = λm.λn.λf.λx.mf(nfx)
+succ = λn.λf.λx.f(nfx)
+mult = λm.λn.λf.λx.m(nf)x
+```
+
+
+
+
+
+
