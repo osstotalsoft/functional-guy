@@ -23,8 +23,8 @@
   - Chapter1. All You Need is Lambda - Christopher Allen, Julie Moronuki - Haskell programming from first principles
   - [Applicative vs Normal evaluation form](https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf)
   - [1.1.5 The substitution model for procedure application](https://sarabander.github.io/sicp/html/1_002e1.xhtml#g_t1_002e1_002e5)
+  - [Church encoding](https://en.wikipedia.org/wiki/Church_encoding#:~:text=The%20Church%20numerals%20are%20a,the%20lambda%20calculus%20this%20way.&text=The%20translation%20may%20apply%20the,as%20a%20literal%20lambda%20term.)
 
 ## Exercises
   - Chapter Exercises
-  - Church numerals
-  - Church encoding booleans
+  - Church encoding for numerals and booleans
