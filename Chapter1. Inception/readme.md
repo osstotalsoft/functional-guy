@@ -23,6 +23,7 @@
   - [Church–Turing thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis#:~:text=It%20states%20that%20a%20function,the%20British%20mathematician%20Alan%20Turing.)
   - Chapter1. All You Need is Lambda - Christopher Allen, Julie Moronuki - Haskell programming from first principles
   - [Applicative vs Normal evaluation form](https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf)
+  - [Normal, Applicative and Lazy Evaluation](https://sookocheff.com/post/fp/evaluating-lambda-expressions/)
   - [1.1.5 The substitution model for procedure application](https://sarabander.github.io/sicp/html/1_002e1.xhtml#g_t1_002e1_002e5)
   - [Church encoding](https://en.wikipedia.org/wiki/Church_encoding#:~:text=The%20Church%20numerals%20are%20a,the%20lambda%20calculus%20this%20way.&text=The%20translation%20may%20apply%20the,as%20a%20literal%20lambda%20term.)
 
