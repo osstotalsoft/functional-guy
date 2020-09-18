@@ -1,5 +1,5 @@
 # functional-guy
-##### Functional Programming Guild - for Great Good!
+##### Functional Programming Guild for Great Good!
 <img src="logo.png" width="200" height="200" />
 
 *Can programming be liberated from the von Neumann style?*
