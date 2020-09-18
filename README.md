@@ -41,6 +41,10 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [The Turing Machine](https://en.wikipedia.org/wiki/Turing_machine)
   - [Church–Turing thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis#:~:text=It%20states%20that%20a%20function,the%20British%20mathematician%20Alan%20Turing.)
 
+## Lambda Calcullus
+- [Lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus)
+- [Fixed-point combinators in JavaScript: Memoizing recursive functions](http://matt.might.net/articles/implementation-of-recursive-fixed-point-y-combinator-in-javascript-for-memoization/)
+- [SKI combinator calculus](https://en.wikipedia.org/wiki/SKI_combinator_calculus#Self-application_and_recursion)
 
 ## FP articles
   - [The Rise and Fall and Rise of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)

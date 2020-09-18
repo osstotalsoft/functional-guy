@@ -27,6 +27,10 @@
   - [1.1.5 The substitution model for procedure application](https://sarabander.github.io/sicp/html/1_002e1.xhtml#g_t1_002e1_002e5)
   - [Church encoding](https://en.wikipedia.org/wiki/Church_encoding#:~:text=The%20Church%20numerals%20are%20a,the%20lambda%20calculus%20this%20way.&text=The%20translation%20may%20apply%20the,as%20a%20literal%20lambda%20term.)
 
+  Optional:
+  - [Fixed-point combinators in JavaScript: Memoizing recursive functions](http://matt.might.net/articles/implementation-of-recursive-fixed-point-y-combinator-in-javascript-for-memoization/)
+- [SKI combinator calculus](https://en.wikipedia.org/wiki/SKI_combinator_calculus#Self-application_and_recursion)
+
 ## Exercises
   - Book Exercises (Chapter1. All You Need is Lambda)
   - See folder [`Exercises`](./Exercises)
