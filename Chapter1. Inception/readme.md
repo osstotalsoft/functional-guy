@@ -27,5 +27,6 @@
   - [Church encoding](https://en.wikipedia.org/wiki/Church_encoding#:~:text=The%20Church%20numerals%20are%20a,the%20lambda%20calculus%20this%20way.&text=The%20translation%20may%20apply%20the,as%20a%20literal%20lambda%20term.)
 
 ## Exercises
-  - Chapter Exercises
+  - Chapter Exercises (Chapter1. All You Need is Lambda)
   - Church encoding for numerals and booleans
+  - Write Factorial in Lambda Calcullus
