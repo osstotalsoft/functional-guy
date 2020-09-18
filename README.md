@@ -59,6 +59,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Why Functional Programming Matters by John Hughes at Functional Conf 2016](https://www.youtube.com/watch?v=XrNdvWqxBvA)
   - [Simon Peyton-Jones: Escape from the ivory tower: the Haskell journey](https://www.youtube.com/watch?v=re96UgMk6GQ)
   - [Lambda World 2019 - A Series of Unfortunate Effects - Robert M. Avram](https://www.youtube.com/watch?v=y5jZnMImbMY)
+  - ["Everything Old is New Again: Quoted Domain Specific Languages" by Philip Wadler](https://www.youtube.com/watch?v=DlBwJ4rvz5c)
 
 
 ## Haskell books
