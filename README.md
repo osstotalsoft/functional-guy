@@ -85,6 +85,8 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Fantasy Land](https://github.com/fantasyland/fantasy-land/blob/master/README.md)
   - [Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
   - [Ploeh - the IO container](https://blog.ploeh.dk/2020/06/08/the-io-container/)
+  - [Implementing GADT's in OOP](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/gadtoop.pdf)
+  - [Writing custom F# LINQ query builder](http://tomasp.net/blog/2015/query-translation/)
   
 
 
