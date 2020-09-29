@@ -79,6 +79,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [The Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/)
   - [Haskell Platform](https://www.haskell.org/platform/)
   - [Hoogle](https://hoogle.haskell.org/) - Haskell search engine; you can search a function by its type/definition. Just fill the definition in the search box!
+  - [haskell repl](https://repl.it/languages/haskell)
 
 ## Other
   - [Structure and interpretation of computer programs MIT](https://sarabander.github.io/sicp/html/index.xhtml#SEC_Contents)
