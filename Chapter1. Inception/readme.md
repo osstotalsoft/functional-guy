@@ -1,7 +1,7 @@
 # Chapter1. Inception
 
 ## Goals
-  The goal of this chapter is to learn some of the history of Effective Computability and understand the two most important models of compution: the Turing Machine and the Lambda Calcullus
+  The goal of this chapter is to learn some of the history of Effective Computability and understand the two most important models of computation: the Turing Machine and the Lambda Calculus
 
   After completing this chapter one should understand:
   - Lambda Calculus as a formal system for expressing programs
