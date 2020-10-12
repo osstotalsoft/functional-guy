@@ -30,7 +30,10 @@
 
   Optional:
   - [Fixed-point combinators in JavaScript: Memoizing recursive functions](http://matt.might.net/articles/implementation-of-recursive-fixed-point-y-combinator-in-javascript-for-memoization/)
-- [SKI combinator calculus](https://en.wikipedia.org/wiki/SKI_combinator_calculus#Self-application_and_recursion)
+  - [SKI combinator calculus with details](https://terbium.io/2019/09/ski/)
+  - [SKI combinator calculus](https://github.com/ngzhian/ski)
+  - [SKI combinator calculus](https://en.wikipedia.org/wiki/SKI_combinator_calculus#Self-application_and_recursion)
+
 
 ## Exercises
   - Book Exercises (Chapter1. All You Need is Lambda)
