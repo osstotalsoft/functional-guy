@@ -38,3 +38,4 @@
 ## Exercises
   - Book Exercises (Chapter1. All You Need is Lambda)
   - See folder [`Exercises`](./Exercises)
+  - [Lambda calculi in JS](https://codesandbox.io/s/funny-archimedes-lmul0)
