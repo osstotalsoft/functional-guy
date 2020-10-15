@@ -19,7 +19,7 @@ Members of this guild will use the principles of fp paradigm in various programm
   - Rust
 
 Because we all need a common language to communicate and share ideas we will learn and embrace the following languages:
-  - Lambda Calcullus
+  - Lambda Calculus
   - Haskell
   - Category Theory
 
