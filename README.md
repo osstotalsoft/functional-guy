@@ -77,6 +77,7 @@ During our meetings and presentations we will try to connect our ideas with impl
 
 ## Haskell tools
   - [The Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/)
+  - [The Haskell Cabal](https://www.haskell.org/cabal/)
   - [Haskell Platform](https://www.haskell.org/platform/)
   - [Hoogle](https://hoogle.haskell.org/) - Haskell search engine; you can search a function by its type/definition. Just fill the definition in the search box!
   - [haskell repl](https://repl.it/languages/haskell)
