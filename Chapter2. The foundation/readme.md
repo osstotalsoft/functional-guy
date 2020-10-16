@@ -8,7 +8,7 @@
   - Get Programming with Haskell - Lesson 1 - Lesson 10
   - [Lexi Lambda - An opinionated guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
   - [Stack vs. Platform vs. Cabal](https://stackoverflow.com/questions/48733970/how-to-install-haskell-platform-or-stack-in-2018-on-linux)
-  - VsCode Haskell extensions ???????
+  - [Haskell for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=haskell.haskell)
   - [Why Functional Programming Matters by John Hughes at Functional Conf 2016](https://www.youtube.com/watch?v=XrNdvWqxBvA)
   - [Why functional programming matters - the paper](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf)
   - [John Backus](https://en.wikipedia.org/wiki/John_Backus)
