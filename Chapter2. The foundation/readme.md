@@ -1,7 +1,12 @@
 # Chapter2. The foundation
 
 ## Goals
-  The goal of this chapter is to understand why functional programming matters and get acquainted with Haskell programming language
+  The goals of this chapter is to understand why functional programming matters and get acquainted with Haskell.
+  After completing this chapter one should be able to:
+    - Explain the advantages of functional programming
+    - Install Hashell via Platform or Stack
+    - compile a Haskell source file with GHC
+    - play with GHCI (quit, load a source file, import a module, evaluate expressions, check the type of an expression)
 
 ## Curricula
   - [THINGS I WISH SOMEONE HAD EXPLAINED ABOUT FUNCTIONAL PROGRAMMING](https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/)
