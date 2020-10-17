@@ -8,6 +8,10 @@
   - Install Hashell via Platform or Stack
   - Compile a Haskell source file with GHC
   - Play with GHCI (quit, load a source file, import a module, evaluate expressions, check the type of an expression)
+  - Define named and annonymous functions
+  - Understand higher order functions
+  - Understand closures and lexical scope
+  - Understand currying and partial application
 
 ## Curricula
   - [THINGS I WISH SOMEONE HAD EXPLAINED ABOUT FUNCTIONAL PROGRAMMING](https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/)
