@@ -5,7 +5,7 @@
   
   After completing this chapter one should be able to:
   - Explain the advantages of functional programming
-  - Install Hashell via Platform or Stack
+  - Install Haskell via Platform or Stack
   - Compile a Haskell source file with GHC
   - Play with GHCI (quit, load a source file, import a module, evaluate expressions, check the type of an expression)
   - Define named and annonymous functions
