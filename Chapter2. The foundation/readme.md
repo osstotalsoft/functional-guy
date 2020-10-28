@@ -32,5 +32,5 @@
 
 ## Exercises
   - Chapter Exercises
-  - Factorial
-  - Re-write the higher order functions from Data.List module (map, filter, foldl, foldr)
+  - Implement the following recursive fns: fact, sum, reverse, take, skip, cycle
+  - Implement the following hofs: map, filter, foldr
