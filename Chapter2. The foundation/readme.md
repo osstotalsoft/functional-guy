@@ -7,7 +7,7 @@
   - Explain the advantages of functional programming
   - Install Haskell via Platform or Stack
   - Compile a Haskell source file with GHC
-  - Play with GHCI (quit, load a source file, import a module, evaluate expressions, check the type of an expression)
+  - Play with GHCI (quit, load a source file, import a module, evaluate expressions, check the type of an expression, time function application)
   - Define named and annonymous functions
   - Understand higher order functions
   - Understand closures and lexical scope
