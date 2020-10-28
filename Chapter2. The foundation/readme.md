@@ -12,6 +12,9 @@
   - Understand higher order functions
   - Understand closures and lexical scope
   - Understand currying and partial application
+  - List data structure and functions
+  - Recursion and pattern matching
+  - Abstracting recursion with List hof's
 
 ## Curricula
   - [THINGS I WISH SOMEONE HAD EXPLAINED ABOUT FUNCTIONAL PROGRAMMING](https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/)
@@ -29,5 +32,5 @@
 
 ## Exercises
   - Chapter Exercises
-  - Church numerals in Haskell
-  - Church encoding booleans in Haskell
+  - Factorial
+  - Re-write the higher order functions from Data.List module (map, filter, foldl, foldr)
