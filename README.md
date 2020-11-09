@@ -28,6 +28,7 @@ During our meetings and presentations we will try to connect our ideas with impl
 ## Chapters
   - [`Chaper1. Inception`](./Chapter1.%20Inception#readme)
   - [`Chaper2. The foundation`](./Chapter2.%20The%20foundation#readme)
+  - [`Chaper3. Haskell's Type System`](./Chapter3.%20Haskell's%20Type%20System#readme)
 
 
 ## Computability theory
@@ -52,6 +53,8 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [THINGS I WISH SOMEONE HAD EXPLAINED ABOUT FUNCTIONAL PROGRAMMING](https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/)
   - [Applicative vs Normal evaluation form](https://courses.cs.washington.edu/courses/cse505/99au/functional/applicative-normal.pdf)
   - [Normal, Applicative and Lazy Evaluation](https://sookocheff.com/post/fp/evaluating-lambda-expressions/)
+  - [Bartosz Milewski - Category Theory 5.2: Algebraic Data Types](https://www.youtube.com/watch?v=w1WMykh7AxA&t=1214s)
+  - [Bartosz Milewski - Simple Algebraic Data Types](https://bartoszmilewski.com/2015/01/13/simple-algebraic-data-types/)
 
 
 ## FP Video

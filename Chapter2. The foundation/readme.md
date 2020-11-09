@@ -29,6 +29,12 @@
   - [Haskell vs. Ada vs. C++ vs. Awk vs. ...An Experiment in Software Prototyping Productivity](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.368.1058&rep=rep1&type=pdf)
   - [Simon Peyton-Jones: Escape from the ivory tower: the Haskell journey](https://www.youtube.com/watch?v=re96UgMk6GQ)
 
+## Alternative Curricula
+ - [LYaH Chapter2. Starting Out](http://learnyouahaskell.com/starting-out)
+ - [LYaH Chapter4. Syntax in Functions](http://learnyouahaskell.com/syntax-in-functions)
+ - [LYaH Chapter5. Recursion](http://learnyouahaskell.com/recursion)
+ - [LYaH Chapter6. Higher Order Functions](http://learnyouahaskell.com/higher-order-functions)
+
 
 ## Exercises
   - Chapter Exercises
