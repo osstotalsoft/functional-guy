@@ -1,4 +1,4 @@
-# Chapter2. Haskell's Type System
+# Chapter3. Haskell's Type System
 
 ## Goals
 After completing this chapter one should be able to:
