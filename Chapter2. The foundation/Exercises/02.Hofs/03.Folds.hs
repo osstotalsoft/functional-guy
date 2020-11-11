@@ -1,4 +1,3 @@
-foldl' :: (t1 -> t2 -> t1) -> t1 -> [t2] -> t1
 foldl' _ a [] = a
 foldl' f a (x : xs) = foldl' f (f a x) xs
 
