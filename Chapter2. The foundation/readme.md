@@ -39,5 +39,3 @@
 ## Exercises
   - Chapter Exercises
   - See folder [`Exercises`](./Exercises)
-  - Implement the following recursive fns: fact, fibonacci, maximum, sum, reverse, take, skip, cycle
-  - Implement the following hofs: map, filter, foldr
