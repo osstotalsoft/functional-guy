@@ -24,6 +24,7 @@
   - [Haskell for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=haskell.haskell)
   - [Why Functional Programming Matters by John Hughes at Functional Conf 2016](https://www.youtube.com/watch?v=XrNdvWqxBvA)
   - [Why functional programming matters - the paper](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf)
+  - [What is the flow of control](https://en.wikipedia.org/wiki/Control_flow)
   - [John Backus](https://en.wikipedia.org/wiki/John_Backus)
   - [John Backus Turing Award Lecture 1977](https://www.thocp.net/biographies/papers/backus_turingaward_lecture.pdf)
   - [Haskell vs. Ada vs. C++ vs. Awk vs. ...An Experiment in Software Prototyping Productivity](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.368.1058&rep=rep1&type=pdf)
