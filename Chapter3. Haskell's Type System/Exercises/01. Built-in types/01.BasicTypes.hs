@@ -1,3 +1,4 @@
+--simple built-in types
 myInt :: Int
 myInt = 2
 
@@ -13,6 +14,7 @@ myBool = True
 myChar :: Char
 myChar = 'a'
 
+--lists
 myCharList :: [Char]
 myCharList = ['a']
 
@@ -22,10 +24,9 @@ alsoMyCharList = "aaa"
 myString :: String
 myString = "sdsd"
 
---list
 myIntegerList :: [Integer]
 myIntegerList = [1, 2, 3]
 
---touple
+--touples
 myTouple :: (String, String, Double)
 myTouple = ("BMW", "X5", 3.0)

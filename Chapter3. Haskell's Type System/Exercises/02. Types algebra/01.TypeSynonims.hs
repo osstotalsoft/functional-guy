@@ -1,9 +1,11 @@
+--Function type wiyhout type synonims
 patientInfo :: String -> String -> Int -> Int -> String
 patientInfo fname lname age height = name ++ " " ++ ageHeight
   where
     name = lname ++ ", " ++ fname
     ageHeight = "(" ++ show age ++ "yrs. " ++ show height ++ "in.)"
 
+--type synonims
 type FirstName = String
 
 type LastName = String
@@ -22,6 +24,8 @@ firstName = fst
 lastName :: PatientName -> LastName
 lastName = snd
 
+
+--same function using type synonims
 patientInfo' :: PatientName -> Age -> Height -> PatienInfo
 patientInfo' name age height = fullName ++ " " ++ ageHeight
   where

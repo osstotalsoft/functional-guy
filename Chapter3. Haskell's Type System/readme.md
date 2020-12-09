@@ -10,7 +10,7 @@ After completing this chapter one should be able to:
  - understand and use function composition
  - understand and use guards
  - understand the Semigroup and Monoid algebraic structures and type-classes
- - understand generic types
+ - understand parameterized types
  - have some ideea about data kinds
  - model partial functions with the Maybe type
 
@@ -32,3 +32,7 @@ After completing this chapter one should be able to:
  - [Haskell programming from first principles - Chapter6. Typeclasses]
  - [Haskell programming from first principles - Chapter11. Algebraic datatypes]
  - [Haskell programming from first principles - Chapter12. Signaling adversity]
+
+## Exercises
+  - See folder [`Exercises`](./Exercises)
+  - [Algebraic data types, algebraic structures and polymorphic fns in JS](https://codesandbox.io/s/intelligent-fermat-k6ybn?file=/src/index.js)

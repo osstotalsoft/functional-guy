@@ -1,3 +1,4 @@
+--polymorhic fn
 identity :: a -> a
 identity x = x
 
@@ -8,6 +9,7 @@ myInteger :: Integer
 myInteger = identity 1
 
 
+--another polymorphic fn
 makeTriple :: a -> b -> c -> (a, b, c)
 makeTriple x y z = (x, y, z)
 

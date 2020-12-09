@@ -1,3 +1,4 @@
+--simple sum types
 data Bool' = True' | False' deriving (Show)
 
 data Sex = Male | Female
@@ -6,6 +7,9 @@ data Sex = Male | Female
 greet :: Sex -> String
 greet Male = "Sir"
 greet Female = "M'lady"
+
+--mixing type synonims with sum types
+data PaymentMethod' = CreditCard' (String, String) | Cash'
 
 type CardNumber = String
 
