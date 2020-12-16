@@ -23,19 +23,22 @@ After completing this chapter one should be able to:
   - [Bartosz Milewski - Simple Algebraic Data Types](https://bartoszmilewski.com/2015/01/13/simple-algebraic-data-types/)
 
 ## Alternative Curricula
- - [LYaH Chapter3. Types and Typeclasses](http://learnyouahaskell.com/types-and-typeclasses)
- - [LYaH Chapter8. Making Our Own Types and Typeclasses](http://learnyouahaskell.com/making-our-own-types-and-typeclasses)
+  - [LYaH Chapter3. Types and Typeclasses](http://learnyouahaskell.com/types-and-typeclasses)
+  - [LYaH Chapter8. Making Our Own Types and Typeclasses](http://learnyouahaskell.com/making-our-own-types-and-typeclasses)
 
 ## A more thorough Curricula
- - [Haskell programming from first principles - Chapter4. Basic datatypes]
- - [Haskell programming from first principles - Chapter5. Types]
- - [Haskell programming from first principles - Chapter6. Typeclasses]
- - [Haskell programming from first principles - Chapter11. Algebraic datatypes]
- - [Haskell programming from first principles - Chapter12. Signaling adversity]
+  - [Haskell programming from first principles - Chapter4. Basic datatypes]
+  - [Haskell programming from first principles - Chapter5. Types]
+  - [Haskell programming from first principles - Chapter6. Typeclasses]
+  - [Haskell programming from first principles - Chapter11. Algebraic datatypes]
+  - [Haskell programming from first principles - Chapter12. Signaling adversity]
+
+ ## More fun with semigroups and monoids in your favourite language
+  - [Ploeh C# - Monoids, semigroups, and friends](https://blog.ploeh.dk/2017/10/05/monoids-semigroups-and-friends/)
+  - [Tom Harding JS - Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
+  - [Wlaschin F# - Monoids without tears](https://fsharpforfunandprofit.com/posts/monoids-without-tears/)
+  - [Algebraic data types, algebraic structures and polymorphic fns in JSBB](https://codesandbox.io/s/youthful-nightingale-cclrs)
+  - [Algebraic structures in F# NBB](https://github.com/osstotalsoft/nbb/blob/f21d42d8610442f0bc6fa265870401209c0e04c0/test/UnitTests/Application/NBB.Application.Mediator.FSharp.Tests/Sample.fs#L193)
 
 ## Exercises
   - See folder [`Exercises`](./Exercises)
-
-## Examples
-  - [Algebraic data types, algebraic structures and polymorphic fns in JS](https://codesandbox.io/s/youthful-nightingale-cclrs)
-  - [Algebraic structures in F#](https://github.com/osstotalsoft/nbb/blob/f21d42d8610442f0bc6fa265870401209c0e04c0/test/UnitTests/Application/NBB.Application.Mediator.FSharp.Tests/Sample.fs#L193)

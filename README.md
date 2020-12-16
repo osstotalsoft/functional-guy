@@ -86,13 +86,24 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Hoogle](https://hoogle.haskell.org/) - Haskell search engine; you can search a function by its type/definition. Just fill the definition in the search box!
   - [haskell repl](https://repl.it/languages/haskell)
 
+
+## Functional JavaScript
+- [Professor frisby's mostly adequate guide](https://mostly-adequate.gitbooks.io/mostly-adequate-guide)
+- [Fantasy Land](https://github.com/fantasyland/fantasy-land/blob/master/README.md)
+- [Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
+- [Eric Elliott - Composing Software: The Book](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
+- [James Sinclair Blog](https://jrsinclair.com)
+
+## F#
+- [Ploeh - the IO container](https://blog.ploeh.dk/2020/06/08/the-io-container/)
+- [Writing custom F# LINQ query builder](http://tomasp.net/blog/2015/query-translation/)
+
+
 ## Other
-  - [Structure and interpretation of computer programs MIT](https://sarabander.github.io/sicp/html/index.xhtml#SEC_Contents)
-  - [Fantasy Land](https://github.com/fantasyland/fantasy-land/blob/master/README.md)
-  - [Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
-  - [Ploeh - the IO container](https://blog.ploeh.dk/2020/06/08/the-io-container/)
+  - [Structure and interpretation of computer programs MIT](https://sarabander.github.io/sicp/html/index.xhtml#SEC_Contents) 
   - [Implementing GADT's in OOP](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/gadtoop.pdf)
-  - [Writing custom F# LINQ query builder](http://tomasp.net/blog/2015/query-translation/)
   
+  
+
 
 
