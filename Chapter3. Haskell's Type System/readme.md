@@ -35,4 +35,7 @@ After completing this chapter one should be able to:
 
 ## Exercises
   - See folder [`Exercises`](./Exercises)
-  - [Algebraic data types, algebraic structures and polymorphic fns in JS](https://codesandbox.io/s/intelligent-fermat-k6ybn?file=/src/index.js)
+
+## Examples
+  - [Algebraic data types, algebraic structures and polymorphic fns in JS](https://codesandbox.io/s/youthful-nightingale-cclrs)
+  - [Algebraic structures in F#](https://github.com/osstotalsoft/nbb/blob/f21d42d8610442f0bc6fa265870401209c0e04c0/test/UnitTests/Application/NBB.Application.Mediator.FSharp.Tests/Sample.fs#L193)
