@@ -21,8 +21,6 @@ After completing this chapter one should be able to:
   - Get Programming with Haskell - Lesson 11 -> Lesson 20
   - [Bartosz Milewski - Category Theory 5.2: Algebraic Data Types](https://www.youtube.com/watch?v=w1WMykh7AxA&t=1214s)
   - [Bartosz Milewski - Simple Algebraic Data Types](https://bartoszmilewski.com/2015/01/13/simple-algebraic-data-types/)
-  - [Hackage Semigroup](https://hackage.haskell.org/package/base-4.14.1.0/docs/Data-Semigroup.html)
-  - [Wiki Haskell Monoid](https://wiki.haskell.org/Monoid)
 
 ## Alternative Curricula
   - [LYaH Chapter3. Types and Typeclasses](http://learnyouahaskell.com/types-and-typeclasses)
@@ -36,6 +34,8 @@ After completing this chapter one should be able to:
   - [Haskell programming from first principles - Chapter12. Signaling adversity]
 
  ## More fun with semigroups and monoids in your favourite language
+  - [Hackage Semigroup](https://hackage.haskell.org/package/base-4.14.1.0/docs/Data-Semigroup.html)
+  - [Hackage Monoid](https://hackage.haskell.org/package/base-4.14.1.0/docs/Data-Monoid.html)
   - [Ploeh C# - Monoids, semigroups, and friends](https://blog.ploeh.dk/2017/10/05/monoids-semigroups-and-friends/)
   - [Tom Harding JS - Fantas, Eel, and Specification](http://www.tomharding.me/fantasy-land/)
   - [Wlaschin F# - Monoids without tears](https://fsharpforfunandprofit.com/posts/monoids-without-tears/)
