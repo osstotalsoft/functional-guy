@@ -3,7 +3,7 @@
 ## Goals
 After completing this chapter four, you'll be able to:
  - Understand how Haskell handles I/O by using IO types
- - Use do-notation to perform I/O
+ - Use do-notation to perform I/O(Understanding of the underlying monad theory is not necessary to program using the I/O system)
  - Write pure programs that interact with the real world
 
 ## Curricula
