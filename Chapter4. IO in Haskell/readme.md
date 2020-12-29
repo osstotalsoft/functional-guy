@@ -5,6 +5,11 @@ After completing this chapter four, you'll be able to:
  - Understand how Haskell handles I/O by using IO types
  - Use do-notation to perform I/O(Understanding of the underlying monad theory is not necessary to program using the I/O system)
  - Write pure programs that interact with the real world
+ - Access command-line arguments
+ - Use the traditional approach to interacting through I/O
+ - Write I/O code using lazy evaluation to make I/O easier
+ - Work with file handles in Haskell
+ - Read from and write to files
 
 ## Curricula
  - https://www.haskell.org/tutorial/io.html
