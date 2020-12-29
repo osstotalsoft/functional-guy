@@ -6,10 +6,10 @@ todoList = [putChar 'a',
                putChar c]
 
 
-sequence_'        :: [IO ()] -> IO [()]
-sequence_' []     =  return [()]
-sequence_'(a:as) =  do a 
-                       sequence as
+sequence_' :: Monad m => [m ()] -> m [()]
+sequence_' [] =  return [()]
+sequence_'(a:as) = do a 
+                      sequence as
 
 
 putStr' :: [Char] -> IO ()
