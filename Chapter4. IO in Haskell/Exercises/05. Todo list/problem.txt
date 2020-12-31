@@ -1,0 +1,18 @@
+Ne propunem sa facem un todo list
+1.	inseram taskuri in fisierul todo.txt
+2.	stergem taskuri din fisierul todo.txt
+
+De exemplu, fisierul todo.txt are urmatoarele taskuri: 
+Task 1
+Task 2
+Task 3
+
+Trebuie sa facem un program in care trebuie sa introducem linia pe care vrem sa o stergem.
+
+These are your TODO items:
+0 - task 1
+1 - task 3
+Which one do you want to delete?
+1
+
+Dupa ce am sters taskul selectat, taskurile ramase trebuiesc salvate in alt fisier ‘remainingTasks.txt’
