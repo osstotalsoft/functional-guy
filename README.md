@@ -26,9 +26,10 @@ Because we all need a common language to communicate and share ideas we will lea
 During our meetings and presentations we will try to connect our ideas with implementations (where possible) with other programming languages.
 
 ## Chapters
-  - [`Chaper1. Inception`](./Chapter1.%20Inception#readme)
-  - [`Chaper2. The foundation`](./Chapter2.%20The%20foundation#readme)
-  - [`Chaper3. Haskell's Type System`](./Chapter3.%20Haskell's%20Type%20System#readme)
+  - [`Chapter1. Inception`](./Chapter1.%20Inception#readme)
+  - [`Chapter2. The foundation`](./Chapter2.%20The%20foundation#readme)
+  - [`Chapter3. Haskell's Type System`](./Chapter3.%20Haskell's%20Type%20System#readme)
+  - [`Chapter4. IO in Haskell`](./Chapter4.%20IO%20in%20Haskell#readme)
 
 
 ## Computability theory
