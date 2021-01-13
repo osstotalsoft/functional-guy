@@ -13,13 +13,11 @@ After completing this chapter four, you'll be able to:
 
 ## Curricula
  - https://www.haskell.org/tutorial/io.html
- - https://bartoszmilewski.com/2016/11/30/monads-and-effects/
  - https://wiki.haskell.org/Introduction_to_IO
 
 ## Alternative Curricula
  - http://learnyouahaskell.com/input-and-output
  - https://en.wikibooks.org/wiki/Haskell/Understanding_monads/IO
- - https://blog.ploeh.dk/2018/11/19/functional-architecture-a-definition/
 
 ## A more thorough Curricula
  - [Learn you a Haskell from great good! - Chapter 8. Input and Output]
