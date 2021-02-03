@@ -9,6 +9,7 @@
 - Get Programming with Haskell - Unit 5
 
 ## Examples
-- [Computational Effects in C#](https://github.com/oncicaradupopovici/CSharpEffects)
+- [`Computational Effects in C#`](https://github.com/oncicaradupopovici/CSharpEffects)
+- See folder [`Examples`](./Examples)
   
 
