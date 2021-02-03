@@ -8,7 +8,7 @@
 ## Curricula
 - Get Programming with Haskell - Unit 5
 
-## Exmples
+## Examples
 - [Computational Effects in C#](https://github.com/oncicaradupopovici/CSharpEffects)
   
 
