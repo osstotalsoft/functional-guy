@@ -30,8 +30,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [`Chapter2. The foundation`](./Chapter2.%20The%20foundation#readme)
   - [`Chapter3. Haskell's Type System`](./Chapter3.%20Haskell's%20Type%20System#readme)
   - [`Chapter4. IO in Haskell`](./Chapter4.%20IO%20in%20Haskell#readme)
-  - [`Chapter5. Functors Applicatives & Monads`](./Chapter5.%20Functors%20Applicatives%20Monads#readme)
-
+  - [`Chapter5. Functors Applicatives & Monads`](./Chapter5.%20Functors%20Applicatives%20%26%20Monads#readme)
 
 ## Computability theory
   - [David Hilbert](https://en.wikipedia.org/wiki/David_Hilbert)
