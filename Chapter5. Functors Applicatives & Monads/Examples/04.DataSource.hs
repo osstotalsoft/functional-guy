@@ -1,80 +1,104 @@
-newtype DataSourceResult a = DataSourceResult (IO (Maybe a))
+import Control.Monad
 
-newtype DataSource i o = DataSource
-  { run :: i -> IO (Maybe o)
+--Define the DataSource Algebra
+type DataSource i o = i -> DataSourceResult o
+
+newtype DataSourceResult a = DataSourceResult
+  { run :: IO (Maybe a)
   }
 
-instance Functor (DataSource i) where
-  fmap fn ds = DataSource (fmap (fmap fn) . run ds)
+instance Functor DataSourceResult where
+  fmap fn (DataSourceResult r) = DataSourceResult (fmap (fmap fn) r)
 
-instance Applicative (DataSource i) where
-  --pure x = DataSource (\_ -> pure (pure x))
-  pure = DataSource . const . pure . pure
-  fn <*> x =
-    DataSource
-      ( \i ->
-          do
-            fn' <- run fn i
-            x' <- run x i
-            return $ fn' <*> x'
-      )
-
-instance Monad (DataSource i) where
-  a >>= fn =
-    DataSource
-      (\i -> run a i >>= (\a' -> run (fn' a') i))
+instance Applicative DataSourceResult where
+  pure = DataSourceResult . pure . pure
+  (DataSourceResult fn) <*> (DataSourceResult x) = DataSourceResult r
     where
-      fn' Nothing = DataSource (\_ -> return Nothing)
+      r =
+        do
+          fn' <- fn
+          x' <- x
+          return $ fn' <*> x'
+
+instance Monad DataSourceResult where
+  (DataSourceResult x) >>= fn = DataSourceResult r
+    where
+      r =
+        do
+          x' <- x
+          run $ fn' x'
+
+      fn' Nothing = DataSourceResult (return Nothing)
       fn' (Just x) = fn x
 
-factorial :: Integer -> Integer
-factorial 0 = 1
-factorial n = n * factorial (n -1)
+--Use the DataSource algebra in some domain
 
-ds1 :: DataSource Integer Integer
-ds1 =
-  DataSource
-    ( \id -> do
-        putStrLn "Doing some sql query"
-        return $ Just id
+type UserId = Integer
+
+type ContractId = Integer
+
+type ClientId = Integer
+
+type AssetId = Integer
+
+type Amount = Double
+
+data Contract = Contract
+  { contractId :: ContractId,
+    clientId :: ClientId,
+    amount :: Amount
+  }
+  deriving (Show)
+
+data Asset = Asset
+  { assetId :: AssetId,
+    ctrId :: ContractId,
+    description :: String
+  }
+  deriving (Show)
+
+--primitive DataSources
+contractsByClientId :: DataSource ClientId [Contract]
+contractsByClientId clientId =
+  DataSourceResult
+    ( do
+        putStrLn $ "Executing contractsByClientId sql query for clientId " ++ show clientId
+        let contracts = [Contract 1 clientId 2000.0, Contract 2 clientId 2000.0]
+        print contracts
+        return $ Just contracts
     )
 
-ds2 :: DataSource Integer [Integer]
-ds2 =
-  DataSource
-    ( \id -> do
-        putStrLn "Doing some sql query"
-        return $ Just [1 .. id]
+assetsByContractId :: DataSource ContractId [Asset]
+assetsByContractId contractId =
+  DataSourceResult
+    ( do
+        putStrLn $ "Executing assetsByContractId sql query for contractId " ++ show contractId
+        let assets = [Asset 1 contractId "BMW E92", Asset 1 contractId "BMW E60"]
+        print assets
+        return $ Just assets
     )
 
-ds3 :: DataSource Integer String
-ds3 =
-  DataSource
-    ( \_ -> do
-        putStrLn "Doing some sql query"
-        return Nothing
+clientIdByUserId :: DataSource UserId ClientId
+clientIdByUserId userId =
+  DataSourceResult
+    ( do
+        putStrLn $ "Executing clientIdByUserId sql query for userId " ++ show userId
+        let clientId = 10 + userId
+        print clientId
+        return $ Just clientId
     )
 
-x :: DataSource Integer Integer
-x = factorial <$> ds1
+--create new data sources by combining existing ones
+totalContractsAmountByClientId :: DataSource ClientId Amount
+totalContractsAmountByClientId clientId = totalAmount <$> contractsByClientId clientId
+  where
+    totalAmount = foldr ((+) . amount) 0
 
-y :: DataSource Integer [Integer]
-y = fmap (fmap factorial) ds2
+totalContractsAmountByUserid :: DataSource UserId Amount
+totalContractsAmountByUserid = clientIdByUserId >=> totalContractsAmountByClientId
 
-z :: DataSource Integer Int
-z = length <$> ds3
-
-type UserId = Int
-
-type TenantId = Int
-
-defaultTenantId :: DataSource UserId TenantId
-defaultTenantId = return 1
-
-getUserNameForTenantId :: TenantId -> DataSource UserId String
-getUserNameForTenantId tenantId =
-  DataSource
-    (\userId -> return $ Just $ show tenantId ++ "_" ++ show userId)
-
-defaultTenantUserName :: DataSource UserId String
-defaultTenantUserName = defaultTenantId >>= getUserNameForTenantId
+assetsByClientId :: DataSource ClientId [Asset]
+assetsByClientId clientId = do
+  contracts <- contractsByClientId clientId
+  assets <- mapM (assetsByContractId . contractId) contracts
+  return $ join assets
