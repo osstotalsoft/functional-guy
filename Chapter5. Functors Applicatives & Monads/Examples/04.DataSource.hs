@@ -63,6 +63,8 @@ contractsByClientId clientId =
   DataSourceResult
     ( do
         putStrLn $ "Executing contractsByClientId sql query for clientId " ++ show clientId
+        --return Nothing
+        --ioError $ userError "Some Sql exc"
         let contracts = [Contract 1 clientId 2000.0, Contract 2 clientId 2000.0]
         print contracts
         return $ Just contracts
