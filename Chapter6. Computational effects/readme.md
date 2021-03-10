@@ -1,5 +1,7 @@
 # Chapter6. Computational effects
 
+<img src="logo.jpg" height="300" />
+
 ## Goals
 - Understand the notions of computational effects
 - Understand the difference between side-effects and computational (monadic) effects
