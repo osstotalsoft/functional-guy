@@ -22,6 +22,7 @@
 - [Monads and Effects by Bartosz Milewski](https://bartoszmilewski.com/2016/11/30/monads-and-effects/)
 
 ## Examples
+- See folder [`Examples`](./Examples)
 
   
 
