@@ -3,7 +3,7 @@
 <img src="logo.jpg" height="300" />
 
 ## Goals
-- Understand the notions of computational effects
+- Understand the notion of computational effects
 - Understand the difference between side-effects and computational (monadic) effects
 - Expand our language with the terms: values with (computational) (monadic) effects, effectfull functions or functions with monadic effects
 - Understand the practical value of:
