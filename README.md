@@ -31,6 +31,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [`Chapter3. Haskell's Type System`](./Chapter3.%20Haskell's%20Type%20System#readme)
   - [`Chapter4. IO in Haskell`](./Chapter4.%20IO%20in%20Haskell#readme)
   - [`Chapter5. Functors Applicatives & Monads`](./Chapter5.%20Functors%20Applicatives%20%26%20Monads#readme)
+  - [`Chapter6. Computational effects`](./Chapter6.%20Computational%20effects#readme)
 
 ## Computability theory
   - [David Hilbert](https://en.wikipedia.org/wiki/David_Hilbert)
@@ -56,6 +57,8 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Normal, Applicative and Lazy Evaluation](https://sookocheff.com/post/fp/evaluating-lambda-expressions/)
   - [Bartosz Milewski - Category Theory 5.2: Algebraic Data Types](https://www.youtube.com/watch?v=w1WMykh7AxA&t=1214s)
   - [Bartosz Milewski - Simple Algebraic Data Types](https://bartoszmilewski.com/2015/01/13/simple-algebraic-data-types/)
+  - [Monads and Effects by Bartosz Milewski](https://bartoszmilewski.com/2016/11/30/monads-and-effects/)
+  - [Eugenio Moggi, Notions of Computation and Monads. This is a hard core research paper that started the whole monad movement in functional languages.](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
 
 
 ## FP Video
@@ -63,6 +66,7 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [Why Functional Programming Matters by John Hughes at Functional Conf 2016](https://www.youtube.com/watch?v=XrNdvWqxBvA)
   - [Simon Peyton-Jones: Escape from the ivory tower: the Haskell journey](https://www.youtube.com/watch?v=re96UgMk6GQ)
   - [Lambda World 2019 - A Series of Unfortunate Effects - Robert M. Avram](https://www.youtube.com/watch?v=y5jZnMImbMY)
+  - [Lambda World 2019 - A categorical view of computational effects - Emily Riehl](https://www.youtube.com/watch?v=Ssx2_JKpB3U)
   - ["Everything Old is New Again: Quoted Domain Specific Languages" by Philip Wadler](https://www.youtube.com/watch?v=DlBwJ4rvz5c)
   - [Hitler reacts to Functional Programming](https://www.youtube.com/watch?v=ADqLBc1vFwI)
 
