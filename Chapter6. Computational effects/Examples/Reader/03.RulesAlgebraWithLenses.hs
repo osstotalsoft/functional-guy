@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GADTs #-}
 
 import Control.Monad
@@ -8,29 +9,31 @@ data Lens a b = Lens
     set :: a -> b -> a
   }
 
-newtype Rule a = Rule {runRule :: a -> a -> a}
+newtype Rule a b = Rule {runRule :: a -> a -> b} -- model -> Reader model model
 
-instance Semigroup (Rule a) where
+type Rule' a b = a -> a -> b
+
+instance Semigroup (Rule a a) where
   r1 <> r2 = Rule (runRule r1 >=> runRule r2)
 
-instance Monoid (Rule a) where
+instance Monoid (Rule a a) where
   mempty = Rule return
 
-
-ruleFor :: Lens a b -> (a -> a -> b) -> Rule a
-ruleFor l f =
+ruleFor :: Lens a b -> Rule a b -> Rule a a
+ruleFor l r =
   Rule
     ( \model prevModel ->
-        let newB = f model prevModel
+        let newB = runRule r model prevModel
          in set l model newB
     )
 
-(==>) :: Lens a b -> (a -> a -> b) -> Rule a
+(==>) :: Lens a b -> Rule a b -> Rule a a
 (==>) = ruleFor
 
-with :: Rule a -> Lens a b -> b -> a -> a
+with :: Rule a a -> Lens a b -> b -> a -> a
 with r l v m = runRule r m' m
-  where m' = set l m v
+  where
+    m' = set l m v
 
 -- implementation
 data Person = Person {personId :: Int, fName :: String, lName :: String, fullName :: String, version :: Int}
@@ -47,17 +50,20 @@ lName' = Lens lName (\person lName -> person {lName = lName})
 fullName' :: Lens Person String
 fullName' = Lens fullName (\person fullName -> person {fullName = fullName})
 
-rule2 :: Rule Person
-rule2 = ruleFor fullName' (\person -> return $ fName person ++ " " ++ lName person)
+version' :: Lens Person Int
+version' = Lens version (\person version -> person {version = version})
 
-rule3 :: Rule Person
-rule3 = ruleFor personId' (\person -> return $ if lName person == "Popovici" then 7 else personId person)
-
-rules :: Rule Person
+rules :: Rule Person Person
 rules =
   mconcat
-    [ fullName' ==> (\person -> return $ fName person ++ " " ++ lName person),
-      personId' ==> (\person -> return $ if lName person == "Popovici" then 7 else personId person)
+    [ fullName' ==> Rule (\person -> return $ fName person ++ " " ++ lName person),
+      personId' ==> Rule (\person -> return $ if lName person == "Popovici" then 7 else personId person),
+      version'
+        ==> Rule
+          ( \person -> do
+              prevPerson <- ask
+              return $ if fullName person /= fullName prevPerson then version person + 1 else version person
+          )
     ]
 
 person :: Person
