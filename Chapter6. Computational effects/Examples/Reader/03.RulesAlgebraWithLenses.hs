@@ -11,8 +11,6 @@ data Lens a b = Lens
 
 newtype Rule a b = Rule {runRule :: a -> a -> b} -- model -> Reader model model
 
-type Rule' a b = a -> a -> b
-
 instance Semigroup (Rule a a) where
   r1 <> r2 = Rule (runRule r1 >=> runRule r2)
 
