@@ -45,12 +45,13 @@ when' predicate rule =
 (|>) :: Rule a a -> Predicate a -> Rule a a
 rule |> predicate = when' predicate rule
 
-changed :: Eq b => Lens a b -> Predicate a
-changed l a = do
+prop :: (a -> b) -> Predicate b -> Predicate a
+prop selector pred a = do
   a' <- ask
-  let b = get l a
-  let b' = get l a'
-  return $ b /= b'
+  let b = selector a
+  let b' = selector a'
+  let cond = pred b b'
+  return cond
 
 -- implementation
 data Address = Address {city :: String, number :: Int} deriving (Show)
@@ -86,19 +87,13 @@ rules :: Rule Person Person
 rules =
   mconcat
     [ fullName' ==> Rule (\person -> return $ fName person ++ " " ++ lName person),
-      personId' ==> Rule (\person -> return 7) |> prop lName (== "Popovici"),
-      version' ==> Rule (return . (+ 1) . version) |> changed fullName' --,
+      personId' ==> Rule (\person -> return 7) |> prop lName (return . (== "Popovici")),
+      version' ==> Rule (return . (+ 1) . version) |> prop fullName (/=)
       -- address'  |=> mconcat
       --     [ city' ==> Rule (return . city),
       --       number' ==> Rule (return . number)
       --     ]
     ]
-
-prop :: (a -> b) -> (b -> Bool) -> Predicate a
-prop selector pred a = do
-  let b = selector a
-  let cond = pred b
-  return cond
 
 verbosePersonIdRule :: Rule Person Person
 verbosePersonIdRule =
