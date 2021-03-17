@@ -1,4 +1,3 @@
-{-# LANGUAGE GADTs #-}
 import Control.Monad
 import Control.Monad.Reader
 
