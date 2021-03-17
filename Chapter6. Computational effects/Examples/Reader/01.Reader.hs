@@ -27,10 +27,41 @@ instance Monad (Reader e) where
 ask :: Reader a a
 ask = Reader id
 
+--example 1
+data Config = Config {topicPrefix :: String, natsUrl :: String}
+
+data CorrelationId = NoCorrelationId
+
+data Event = NoEvent
+
+data Command = NoCommand
+
+sendCommand :: Command -> Reader Config CorrelationId
+sendCommand cmd = do
+  config <- ask
+  let prefix = topicPrefix config
+  let url = natsUrl config
+  let correlationId = NoCorrelationId
+  return correlationId
+
+waitForEvent :: CorrelationId -> Reader Config Event
+waitForEvent corelationId = do
+  config <- ask
+  let prefix = topicPrefix config
+  let url = natsUrl config
+  let event = NoEvent
+  return event
+
+sendCommandAndWaitForEvent :: Command -> Reader Config Event
+sendCommandAndWaitForEvent = sendCommand >=> waitForEvent
+
+
+
+--example2
 data Env = Env {isProd :: Bool, secret :: Integer}
 
 isProdEnv :: Reader Env Bool
-isProdEnv = not . isProd <$> ask
+isProdEnv = isProd <$> ask
 
 showEnv :: Reader Env String
 showEnv = do
