@@ -88,7 +88,8 @@ rules =
   mconcat
     [ fullName' ==> Rule (\person -> return $ fName person ++ " " ++ lName person),
       personId' ==> Rule (\person -> return 7) |> prop lName (return . (== "Popovici")),
-      version' ==> Rule (return . (+ 1) . version) |> prop fullName (/=)
+      version'  ==> Rule (return . (+ 1) . version) |> prop fullName (/=),
+      address'  ==> Rule (return . const Nothing ) |> prop personId (/=)
       -- address'  |=> mconcat
       --     [ city' ==> Rule (return . city),
       --       number' ==> Rule (return . number)
