@@ -34,7 +34,6 @@ deserialize json = do
 
 authorize :: Envelope a -> ReaderT (Context a) Maybe (Envelope a)
 authorize envelope = do
-  ctx <- ask
   let authorized = userId envelope == 5
   if authorized
     then return envelope
