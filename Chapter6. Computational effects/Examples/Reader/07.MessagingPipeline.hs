@@ -3,6 +3,8 @@ import Control.Monad.Reader
 
 type Middleware r m a b = a -> ReaderT r m b
 
+-- implementation
+
 type UserId = Int
 
 type Json = String
@@ -56,7 +58,7 @@ deserializeFn' = Just . read
 logFn' :: (Show a) => Envelope a -> String
 logFn' = show . payload
 
-
+--test the pipeline
 json :: Json
 json = "Envelope {userId = 5, payload = ContractCreated {documentId = 1, siteId = 1}}"
 
