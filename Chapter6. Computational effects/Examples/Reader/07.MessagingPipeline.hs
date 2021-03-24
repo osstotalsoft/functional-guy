@@ -33,11 +33,12 @@ deserialize json = do
   lift envelope
 
 authorize :: Envelope a -> ReaderT (Context a) Maybe (Envelope a)
-authorize envelope = do
-  let authorized = userId envelope == 5
+authorize envelope =
   if authorized
     then return envelope
     else lift Nothing
+  where
+    authorized = userId envelope == 5
 
 handle :: Envelope a -> ReaderT (Context a) Maybe String
 handle envelope = do
