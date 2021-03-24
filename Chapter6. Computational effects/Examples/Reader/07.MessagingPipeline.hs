@@ -1,19 +1,13 @@
 import Control.Monad
 import Control.Monad.Reader
 
+-- the generic pipeline library
 type Middleware r m a b = a -> ReaderT r m b
 
--- implementation
-
-type UserId = Int
-
+-- some reusable middlewares
 type Json = String
 
-data ContractCreated = ContractCreated
-  { documentId :: Int,
-    siteId :: Int
-  }
-  deriving (Show, Read)
+type UserId = Int
 
 data Envelope a = Envelope
   { userId :: UserId,
@@ -44,6 +38,13 @@ handle :: Envelope a -> ReaderT (Context a) Maybe String
 handle envelope = do
   log <- asks logFn
   return $ log envelope
+
+-- implementation
+data ContractCreated = ContractCreated
+  { documentId :: Int,
+    siteId :: Int
+  }
+  deriving (Show, Read)
 
 pipelineFn :: Json -> ReaderT (Context a) Maybe String
 pipelineFn = deserialize >=> authorize >=> handle
