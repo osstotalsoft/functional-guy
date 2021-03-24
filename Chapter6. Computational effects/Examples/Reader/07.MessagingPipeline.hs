@@ -22,8 +22,7 @@ data Envelope a = Envelope
   deriving (Show, Read)
 
 data Context a = Context
-  { authorizeFn :: UserId -> Bool,
-    deserializeFn :: String -> Maybe (Envelope a),
+  { deserializeFn :: String -> Maybe (Envelope a),
     logFn :: Envelope a -> String
   }
 
@@ -36,7 +35,7 @@ deserialize json = do
 authorize :: Envelope a -> ReaderT (Context a) Maybe (Envelope a)
 authorize envelope = do
   ctx <- ask
-  let authorized = authorizeFn ctx (userId envelope)
+  let authorized = userId envelope == 5
   if authorized
     then return envelope
     else lift Nothing
@@ -49,21 +48,15 @@ handle envelope = do
 pipelineFn :: Json -> ReaderT (Context a) Maybe String
 pipelineFn = deserialize >=> authorize >=> handle
 
-authorizeFn' :: UserId -> Bool
-authorizeFn' = (== 5)
-
-deserializeFn' :: (Read a) => String -> Maybe (Envelope a)
-deserializeFn' = Just . read
-
-logFn' :: (Show a) => Envelope a -> String
-logFn' = show . payload
-
 --test the pipeline
 json :: Json
 json = "Envelope {userId = 5, payload = ContractCreated {documentId = 1, siteId = 1}}"
 
 ctx :: Context ContractCreated
-ctx = Context authorizeFn' deserializeFn' logFn'
+ctx = Context deserializeFn' logFn'
+  where
+    deserializeFn' = Just . read
+    logFn' = show . payload
 
 result :: Maybe String
 result = runReaderT (pipelineFn json) ctx
