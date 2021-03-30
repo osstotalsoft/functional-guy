@@ -7,45 +7,50 @@ import qualified Data.Map as Map
 import Data.Maybe
 
 --schema
-data Tenant = Tenant {tenantId :: Int, tenantName :: String} deriving (Show)
+type TenantId = Int
+type UserId = Int
+type ClaimId = Int
+type ClaimName = String
 
-data User = User {userId :: Int, userName :: String, tenantId :: Int} deriving (Show)
+data Tenant = Tenant {tenantId :: TenantId, tenantName :: String} deriving (Show)
 
-data Claim = Claim {claimId :: Int, claimName :: String}
+data User = User {userId :: UserId, userName :: String, tenantId :: TenantId} deriving (Show)
 
-data UserClaim = UserClaim {userId :: Int, claimId :: Int}
+data Claim = Claim {claimId :: ClaimId, claimName :: String}
+
+data UserClaim = UserClaim {userId :: UserId, claimId :: ClaimId}
 
 data Query a where
-  GetTenantById :: Int -> Query Tenant
-  GetUserById :: Int -> Query User
+  GetTenantById :: TenantId -> Query Tenant
+  GetUserById :: UserId -> Query User
   GetAllUsers :: Query [User]
-  GetClaimById :: Int -> Query Claim
-  GetAllUsersByTenantId :: Int -> Query [User]
-  GetTenantByUserId :: Int -> Query Tenant
-  GetUserHasClaim :: (Int, String) -> Query Bool
-  GetAllUsersWithClaim :: String -> Query [User]
+  GetClaimById :: ClaimId -> Query Claim
+  GetAllUsersByTenantId :: TenantId -> Query [User]
+  GetTenantByUserId :: UserId -> Query Tenant
+  GetUserHasClaim :: (UserId, ClaimName) -> Query Bool
+  GetAllUsersWithClaim :: ClaimName -> Query [User]
 
 newtype Context = Context
   { dataSources :: DataSources
   }
 
 data DataSources = DataSources
-  { tenants :: Map.Map Int Tenant,
-    users :: Map.Map Int User,
-    claims :: Map.Map Int Claim,
-    userClaims :: Map.Map Int [UserClaim]
+  { tenants :: Map.Map TenantId Tenant,
+    users :: Map.Map UserId User,
+    claims :: Map.Map ClaimId Claim,
+    userClaims :: Map.Map UserId [UserClaim]
   }
 
 --resolvers
 type Resolver c q a = q -> Reader c a
 
-getTenantById :: Resolver Context Int Tenant
+getTenantById :: Resolver Context TenantId Tenant
 getTenantById tenantId = do
   ds <- asks dataSources
   let tenant = Map.lookup tenantId (tenants ds)
   return $ fromJust tenant
 
-getUserById :: Resolver Context Int User
+getUserById :: Resolver Context UserId User
 getUserById userId = do
   ds <- asks dataSources
   let user = Map.lookup userId (users ds)
@@ -57,27 +62,29 @@ getAllUsers () = do
   let userList = snd <$> Map.toList (users ds)
   return userList
 
-getClaimById :: Resolver Context Int Claim
+getClaimById :: Resolver Context ClaimId Claim
 getClaimById claimId = do
   ds <- asks dataSources
   let claim = Map.lookup claimId (claims ds)
   return $ fromJust claim
 
-getUserClaims :: Resolver Context Int [UserClaim]
+getUserClaims :: Resolver Context UserId [UserClaim]
 getUserClaims userId = do
   ds <- asks dataSources
   let claims = Map.lookup userId (userClaims ds)
   return $ fromJust claims
 
 --todo:: Implement the following resolvers by composing existing ones
---hint: You should not use the context at all
-getAllUsersByTenantId :: Resolver Context Int [User]
+--hint: In order to keep things DRY, do not use the context at all,
+--      you should only use the resolvers from above: 
+--      getTenantById, getUserById, getAllUsers, getClaimById, getUserClaims
+getAllUsersByTenantId :: Resolver Context TenantId [User]
 
-getTenantByUserId :: Resolver Context Int Tenant
+getTenantByUserId :: Resolver Context UserId Tenant
 
-getUserHasClaim :: Resolver Context (Int, String) Bool
+getUserHasClaim :: Resolver Context (UserId, ClaimName) Bool
 
-getAllUsersWithClaim :: Resolver Context String [User]
+getAllUsersWithClaim :: Resolver Context ClaimName [User]
 
 
 resolver :: Resolver Context (Query a) a
@@ -94,16 +101,16 @@ executeQuery :: Query a -> Context -> a
 executeQuery = runReader . resolver
 
 --test
-tenantMap :: Map.Map Int Tenant
+tenantMap :: Map.Map TenantId Tenant
 tenantMap = Map.fromList [(1, Tenant 1 "TS")]
 
-userMap :: Map.Map Int User
+userMap :: Map.Map UserId User
 userMap = Map.fromList [(1, User 1 "radu" 1), (2, User 2 "matei" 1)]
 
 claimMap :: Map.Map Int Claim
 claimMap = Map.fromList [(1, Claim 1 "read"), (2, Claim 2 "write")]
 
-userClaimMap :: Map.Map Int [UserClaim]
+userClaimMap :: Map.Map UserId [UserClaim]
 userClaimMap = Map.fromList [(1, [UserClaim 1 1]), (2, [UserClaim 2 1])]
 
 ctx :: Context
