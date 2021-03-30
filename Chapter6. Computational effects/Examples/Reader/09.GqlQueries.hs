@@ -1,4 +1,3 @@
-{-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE GADTs #-}
 
 import Control.Monad
@@ -14,11 +13,11 @@ type ClaimName = String
 
 data Tenant = Tenant {tenantId :: TenantId, tenantName :: String} deriving (Show)
 
-data User = User {userId :: UserId, userName :: String, tenantId :: TenantId} deriving (Show)
+data User = User {userId :: UserId, userName :: String, _tenantId :: TenantId} deriving (Show)
 
 data Claim = Claim {claimId :: ClaimId, claimName :: String}
 
-data UserClaim = UserClaim {userId :: UserId, claimId :: ClaimId}
+data UserClaim = UserClaim {_userId :: UserId, _claimId :: ClaimId}
 
 data Query a where
   GetTenantById :: TenantId -> Query Tenant
@@ -78,6 +77,7 @@ getUserClaims userId = do
 --hint: In order to keep things DRY, do not use the context at all,
 --      you should only use the resolvers from above: 
 --      getTenantById, getUserById, getAllUsers, getClaimById, getUserClaims
+
 getAllUsersByTenantId :: Resolver Context TenantId [User]
 
 getTenantByUserId :: Resolver Context UserId Tenant
