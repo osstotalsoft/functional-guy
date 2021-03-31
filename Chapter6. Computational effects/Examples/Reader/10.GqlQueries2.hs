@@ -41,33 +41,33 @@ data DataSources = DataSources
   }
 
 --resolvers
-type Resolver c q a = q -> ReaderT c Maybe a
+type Resolver q c a = q -> ReaderT c Maybe a
 
-getTenantById :: Resolver Context TenantId Tenant
+getTenantById :: Resolver TenantId Context Tenant
 getTenantById tenantId = do
   ds <- asks dataSources
   let tenant = Map.lookup tenantId (tenants ds)
   lift tenant
 
-getUserById :: Resolver Context UserId User
+getUserById :: Resolver UserId Context User
 getUserById userId = do
   ds <- asks dataSources
   let user = Map.lookup userId (users ds)
   lift user
 
-getAllUsers :: Resolver Context () [User]
+getAllUsers :: Resolver () Context [User]
 getAllUsers () = do
   ds <- asks dataSources
   let userList = snd <$> Map.toList (users ds)
   return userList
 
-getClaimById :: Resolver Context ClaimId Claim
+getClaimById :: Resolver ClaimId Context Claim
 getClaimById claimId = do
   ds <- asks dataSources
   let claim = Map.lookup claimId (claims ds)
   lift claim
 
-getUserClaims :: Resolver Context UserId [UserClaim]
+getUserClaims :: Resolver UserId Context [UserClaim]
 getUserClaims userId = do
   ds <- asks dataSources
   let claims = Map.lookup userId (userClaims ds)
@@ -78,17 +78,16 @@ getUserClaims userId = do
 --      you should only use the resolvers from above: 
 --      getTenantById, getUserById, getAllUsers, getClaimById, getUserClaims
 
-getAllUsersByTenantId :: Resolver Context TenantId [User]
+getAllUsersByTenantId :: Resolver TenantId Context [User]
 
-getTenantByUserId :: Resolver Context UserId Tenant
+getTenantByUserId :: Resolver UserId Context Tenant
 
-getUserHasClaim :: Resolver Context (UserId, ClaimName) Bool
+getUserHasClaim :: Resolver (UserId, ClaimName) Context Bool
 
-getAllUsersWithClaim :: Resolver Context ClaimName [User]
+getAllUsersWithClaim :: Resolver ClaimName Context [User]
 
 
-
-resolver :: Resolver Context (Query a) a
+resolver :: Resolver (Query a) Context a
 resolver (GetTenantById query) = getTenantById query
 resolver (GetUserById query) = getUserById query
 resolver GetAllUsers = getAllUsers ()

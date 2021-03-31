@@ -52,34 +52,34 @@ data DB i a = DB
   }
 
 --resolvers
-type Resolver c q a = q -> ReaderT c (MaybeT IO) a
+type Resolver q c a = q -> ReaderT c (MaybeT IO) a
 
-getTenantById :: Resolver Context TenantId Tenant
+getTenantById :: Resolver TenantId Context Tenant
 getTenantById tenantId = do
   liftIO $ putStrLn $ "****DEBUG: getTenantById " ++ " " ++ show tenantId
   tenantDb <- asks (tenants . dataSources)
   let tenant = tenantDb `getById` tenantId
   lift tenant
 
-getUserById :: Resolver Context UserId User
+getUserById :: Resolver UserId Context User
 getUserById userId = do
   userDB <- asks (users . dataSources)
   let user = userDB `getById` userId
   lift user
 
-getAllUsers :: Resolver Context () [User]
+getAllUsers :: Resolver () Context [User]
 getAllUsers () = do
   userDB <- asks (users . dataSources)
   let userList = getAll userDB
   lift userList
 
-getClaimById :: Resolver Context ClaimId Claim
+getClaimById :: Resolver ClaimId Context Claim
 getClaimById claimId = do
   claimDb <- asks (claims . dataSources)
   let claim = claimDb `getById` claimId
   lift claim
 
-getUserClaims :: Resolver Context UserId [UserClaim]
+getUserClaims :: Resolver UserId Context [UserClaim]
 getUserClaims userId = do
   userClaimDb <- asks (userClaims . dataSources)
   let claims = userClaimDb `getById` userId
@@ -90,15 +90,16 @@ getUserClaims userId = do
 --      you should only use the resolvers from above:
 --      getTenantById, getUserById, getAllUsers, getClaimById, getUserClaims
 
-getAllUsersByTenantId :: Resolver Context TenantId [User]
+getAllUsersByTenantId :: Resolver TenantId Context [User]
 
-getTenantByUserId :: Resolver Context UserId Tenant
+getTenantByUserId :: Resolver UserId Context Tenant
 
-getUserHasClaim :: Resolver Context (UserId, ClaimName) Bool
+getUserHasClaim :: Resolver (UserId, ClaimName) Context Bool
 
-getAllUsersWithClaim :: Resolver Context ClaimName [User]
+getAllUsersWithClaim :: Resolver ClaimName Context [User]
 
-resolver :: Resolver Context (Query a) a
+
+resolver :: Resolver (Query a) Context a
 resolver (GetTenantById query) = getTenantById query
 resolver (GetUserById query) = getUserById query
 resolver GetAllUsers = getAllUsers ()
