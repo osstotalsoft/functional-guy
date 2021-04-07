@@ -13,3 +13,15 @@ choco' = show Chocolate
 
 pretyPrint :: Printable a => a -> String
 pretyPrint x = "[" ++ toString x ++ "]"
+
+
+class Mappable f where
+  map :: (a -> b) -> f a -> f b
+
+instance Mappable Maybe where
+  map f (Just a) = Just (f a)
+  map f Nothing = Nothing
+
+instance Mappable [] where
+
+instance Mappable ((->)a) where
