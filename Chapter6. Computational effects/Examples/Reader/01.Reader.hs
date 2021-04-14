@@ -87,3 +87,27 @@ incrementThenDoubleTheSecret = do
   let x = secret env
   x' <- increment x
   double x'
+
+
+
+data Context = NA
+
+myFn:: Int -> String
+myFn _ = ""
+
+myOtherFn:: String -> Double
+myOtherFn _ = 11.3
+
+myComposedFn = myOtherFn . myFn
+
+
+myFn':: Int -> (Context -> String)
+myFn' _ _ = ""
+
+myOtherFn':: String -> (Context -> Double)
+myOtherFn' _ _= 11.3
+
+--myComposedFn' = myOtherFn' . myFn'
+
+myComposedFn' :: Int -> Context -> Double
+myComposedFn' = myFn' >=> myOtherFn'
