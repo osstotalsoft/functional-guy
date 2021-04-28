@@ -91,12 +91,28 @@ getUserClaims userId = do
 --      getTenantById, getUserById, getAllUsers, getClaimById, getUserClaims
 
 getAllUsersByTenantId :: Resolver TenantId Context [User]
+getAllUsersByTenantId tId = filter (\x -> _tenantId x == tId) <$> getAllUsers ()
 
 getTenantByUserId :: Resolver UserId Context Tenant
+getTenantByUserId = getUserById >=> getTenantById . _tenantId
+
+-- getTenantByUserId userId = do
+--   user <- getUserById userId
+--   let tid = _tenantId user
+--   getTenantById tid
 
 getUserHasClaim :: Resolver (UserId, ClaimName) Context Bool
+getUserHasClaim (userId, claim) = do
+  userClaims <- getUserClaims userId
+  claims <- mapM getClaimById (_claimId <$> userClaims)
+  if any (\x -> claimName x == claim) claims
+    then return True
+    else return False
 
 getAllUsersWithClaim :: Resolver ClaimName Context [User]
+getAllUsersWithClaim claim = do
+  users <- getAllUsers ()
+  filterM (\x -> getUserHasClaim (userId x, claim)) users
 
 
 resolver :: Resolver (Query a) Context a

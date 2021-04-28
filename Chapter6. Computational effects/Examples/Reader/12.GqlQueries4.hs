@@ -10,6 +10,7 @@ import qualified Data.Map as Map
 import Data.Maybe
 import Data.Typeable
 
+
 --schema
 type TenantId = Int
 
@@ -54,33 +55,34 @@ data DB i m a = DB
   }
 
 --resolvers
-type Resolver q c m a = (Monad m) => q -> ReaderT c m a
 
-getTenantById :: Resolver TenantId (Context m) m Tenant
+type Resolver q c m a = (Monad m) => q -> ReaderT (c m) m a
+
+getTenantById :: Resolver TenantId Context m Tenant
 getTenantById tenantId = do
   tenantDb <- asks (tenants . dataSources)
   let tenant = tenantDb `getById` tenantId
   lift tenant
 
-getUserById :: Resolver UserId (Context m) m User
+getUserById :: Resolver UserId Context m User
 getUserById userId = do
   userDB <- asks (users . dataSources)
   let user = userDB `getById` userId
   lift user
 
-getAllUsers :: Resolver () (Context m) m [User]
+getAllUsers :: Resolver () Context m [User]
 getAllUsers () = do
   userDB <- asks (users . dataSources)
   let userList = getAll userDB
   lift userList
 
-getClaimById :: Resolver ClaimId (Context m) m Claim
+getClaimById :: Resolver ClaimId Context m Claim
 getClaimById claimId = do
   claimDb <- asks (claims . dataSources)
   let claim = claimDb `getById` claimId
   lift claim
 
-getUserClaims :: Resolver UserId (Context m) m [UserClaim]
+getUserClaims :: Resolver UserId Context m [UserClaim]
 getUserClaims userId = do
   userClaimDb <- asks (userClaims . dataSources)
   let claims = userClaimDb `getById` userId
@@ -91,16 +93,32 @@ getUserClaims userId = do
 --      you should only use the resolvers from above:
 --      getTenantById, getUserById, getAllUsers, getClaimById, getUserClaims
 
-getAllUsersByTenantId :: Resolver TenantId (Context m) m [User]
+getAllUsersByTenantId :: Resolver TenantId Context m [User]
+getAllUsersByTenantId tId = filter (\x -> _tenantId x == tId) <$> getAllUsers ()
 
-getTenantByUserId :: Resolver UserId (Context m) m Tenant
+getTenantByUserId :: Resolver UserId Context m Tenant
+getTenantByUserId = getUserById >=> getTenantById . _tenantId
 
-getUserHasClaim :: Resolver (UserId, ClaimName) (Context m) m Bool
+-- getTenantByUserId userId = do
+--   user <- getUserById userId
+--   let tid = _tenantId user
+--   getTenantById tid
 
-getAllUsersWithClaim :: Resolver ClaimName (Context m) m [User]
+getUserHasClaim :: Resolver (UserId, ClaimName) Context m Bool
+getUserHasClaim (userId, claim) = do
+  userClaims <- getUserClaims userId
+  claims <- mapM getClaimById (_claimId <$> userClaims)
+  if any (\x -> claimName x == claim) claims
+    then return True
+    else return False
+
+getAllUsersWithClaim :: Resolver ClaimName Context m [User]
+getAllUsersWithClaim claim = do
+  users <- getAllUsers ()
+  filterM (\x -> getUserHasClaim (userId x, claim)) users
 
 
-resolver :: Resolver (Query a) (Context m) m a
+resolver :: Resolver (Query a) Context m a
 resolver (GetTenantById query) = getTenantById query
 resolver (GetUserById query) = getUserById query
 resolver GetAllUsers = getAllUsers ()
@@ -123,13 +141,13 @@ claimMap = Map.fromList [(1, Claim 1 "read"), (2, Claim 2 "write")]
 userClaimMap :: Map.Map UserId [UserClaim]
 userClaimMap = Map.fromList [(1, [UserClaim 1 1]), (2, [UserClaim 2 1])]
 
-fromMap :: (Ord i, Typeable a) => Map.Map i a -> DB i (MaybeT IO) a
+fromMap :: (Ord i, Show i, Typeable a) => Map.Map i a -> DB i (MaybeT IO) a
 fromMap map =
   DB
     { getById =
         \id -> do
           let v = Map.lookup id map
-          liftIO $ putStrLn $ "****DEBUG: getById " ++ " " ++ show (typeOf v)
+          liftIO $ putStrLn $ "****DEBUG: getById " ++ show id ++ " ::" ++ show (typeOf v)
           MaybeT $ return v,
       getAll = do
         let xs = snd <$> Map.toList map
