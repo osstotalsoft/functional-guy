@@ -37,10 +37,13 @@ type Stack a = [a] -- o structura de date care fct dupa principiul LIFO
 --pop:: Stack a -> a
 pop :: State (Stack a) a
 pop = do
-  s <- get
-  let (x : xs) = s
-  put xs
-  return x
+  -- s <- get
+  -- let (x : xs) = s
+  -- put xs
+  -- return x
+  h <- gets head
+  modify tail
+  return h
 
 popAll :: State (Stack a) [a]
 popAll = do
