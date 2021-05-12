@@ -47,10 +47,11 @@ popAll = do
   l <- gets length
   if l == 0
     then return []
-    else do
-      x <- pop
-      xs <- popAll
-      return $ x : xs
+    else -- do
+    --   x <- pop
+    --   xs <- popAll
+    --   return $ x : xs
+      liftM2 (:) pop popAll
 
 push :: a -> State (Stack a) ()
 push = modify . (:)
