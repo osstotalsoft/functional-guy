@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Domain\InvoiceAggregate.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NBB.Application.Mediator.FSharp" Version="5.1.2" />
+    <PackageReference Include="NBB.Core.Effects" Version="5.1.2" />
+    <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.1.2" />
+    <PackageReference Include="NBB.Core.Evented.FSharp" Version="5.1.2" />
+  </ItemGroup>
+
+</Project>
