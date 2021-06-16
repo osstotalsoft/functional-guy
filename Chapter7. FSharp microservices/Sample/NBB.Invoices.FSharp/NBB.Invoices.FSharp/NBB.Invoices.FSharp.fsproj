@@ -9,6 +9,7 @@
     <Compile Include="Application\Mediator.fs" />
     <Compile Include="Application\Invoice.fs" />
     <None Include="Application\Invoice.fsx" />
+    <Compile Include="Application\Application.fs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
     <PackageReference Include="NBB.Core.Effects" Version="5.1.2" />
     <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.1.2" />
     <PackageReference Include="NBB.Core.Evented.FSharp" Version="5.1.2" />
+    <PackageReference Include="NBB.Messaging.Effects" Version="5.1.2" />
   </ItemGroup>
 
 </Project>
