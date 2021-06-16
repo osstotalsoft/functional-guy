@@ -12,6 +12,8 @@
 - Build event driven stream processors (workers) powered by [`NBB.Messaging.Host`](https://github.com/osstotalsoft/nbb/tree/master/src/Messaging/NBB.Messaging.Host#README.md) and [`NBB.Messaging.Effects`](https://github.com/osstotalsoft/nbb/tree/master/src/Messaging/NBB.Messaging.Effects#README.md)
   
 ## Curricula
+- [`F# Types - Microsoft docs`](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/fsharp-types)
+- [`The "Understanding F# types" series by Scott Wlaschin`](https://fsharpforfunandprofit.com/series/understanding-fsharp-types/)
 - [`Domain Modeling Made Functional by Scott Wlaschin`](https://github.com/swlaschin/DomainModelingMadeFunctional)
 - [`Easy domain modelling with types by Mark Seemann`](https://blog.ploeh.dk/2016/11/28/easy-domain-modelling-with-types/)
 - [`Six approaches to dependency injection by Scott Wlaschin`](https://fsharpforfunandprofit.com/posts/dependencies/)
