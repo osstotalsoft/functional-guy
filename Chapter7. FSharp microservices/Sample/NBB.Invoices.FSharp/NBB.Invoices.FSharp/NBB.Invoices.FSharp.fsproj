@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NBB.Application.Mediator.FSharp" Version="5.1.2" />
-    <PackageReference Include="NBB.Core.Effects" Version="5.1.2" />
-    <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.1.2" />
-    <PackageReference Include="NBB.Core.Evented.FSharp" Version="5.1.2" />
-    <PackageReference Include="NBB.Messaging.Effects" Version="5.1.2" />
+    <PackageReference Include="NBB.Application.Mediator.FSharp" Version="5.1.3" />
+    <PackageReference Include="NBB.Core.Effects" Version="5.1.3" />
+    <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.1.3" />
+    <PackageReference Include="NBB.Core.Evented.FSharp" Version="5.1.3" />
+    <PackageReference Include="NBB.Messaging.Effects" Version="5.1.3" />
   </ItemGroup>
 
 </Project>

@@ -87,7 +87,3 @@ module WriteApplication =
         services.AddMessagingEffects() |> ignore
 
         services.AddSideEffectHandler(Mediator.handleGetMediator mediator)
-
-
-module ReadApplication =
-
