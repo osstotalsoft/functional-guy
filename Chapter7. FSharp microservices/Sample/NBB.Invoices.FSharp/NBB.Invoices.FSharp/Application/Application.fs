@@ -1,4 +1,5 @@
 namespace NBB.Invoices.FSharp.Application
+
 open NBB.Core.Effects
 open NBB.Core.Effects.FSharp
 open NBB.Application.Mediator.FSharp
@@ -45,27 +46,9 @@ module PipelineUtils =
 
     let terminateEvent : (Effect<unit option> -> Effect<unit>) = Effect.map ignore
 
-
-module WriteApplication =
-    open RequestMiddleware
-    open CommandMiddleware
-    open CommandHandler
-
-    let private commandPipeline : CommandMiddleware =
-        handleExceptions
-        << logRequest
-        << handlers [ CreateInvoice.handle |> upCast
-                      MarkInvoiceAsPayed.handle |> upCast ]
-
-    let private queryPipeline : QueryMiddleware =
-        handleExceptions << logRequest << handlers []
-
-    open EventMiddleware
-
-    let private eventPipeline : EventMiddleware =
-        handleExceptions << logRequest << handlers []
-
-    let addServices (services: IServiceCollection) =
+[<AutoOpen>]
+module MediatorUtils =
+    let addMediator commandPipeline queryPipeline eventPipeline (services: IServiceCollection) =
         let sendCommand (cmd: 'TCommand) =
             CommandMiddleware.run commandPipeline cmd
             |> terminateRequest
@@ -83,7 +66,48 @@ module WriteApplication =
               DispatchEvent = publishEvent }
 
 
+        services.AddSideEffectHandler(Mediator.handleGetMediator mediator)
+
+module WriteApplication =
+    open RequestMiddleware
+    open CommandHandler
+
+    let private commandPipeline : CommandMiddleware =
+        handleExceptions
+        << logRequest
+        << handlers [ CreateInvoice.handle |> upCast
+                      MarkInvoiceAsPayed.handle |> upCast ]
+
+    let private queryPipeline : QueryMiddleware =
+        handleExceptions << logRequest << handlers []
+
+    open EventMiddleware
+
+    let private eventPipeline : EventMiddleware =
+        handleExceptions << logRequest << handlers []
+
+    let addServices (services: IServiceCollection) =
+
         services.AddEffects() |> ignore
         services.AddMessagingEffects() |> ignore
+        addMediator commandPipeline queryPipeline eventPipeline services
 
-        services.AddSideEffectHandler(Mediator.handleGetMediator mediator)
+module ReadApplication =
+    open RequestMiddleware
+
+    let private commandPipeline : CommandMiddleware =
+        handleExceptions << logRequest << publishMessage
+
+    let private queryPipeline : QueryMiddleware =
+        handleExceptions << logRequest << handlers []
+
+    open EventMiddleware
+
+    let private eventPipeline : EventMiddleware =
+        handleExceptions << logRequest << handlers []
+
+    let addServices (services: IServiceCollection) =
+
+        services.AddEffects() |> ignore
+        services.AddMessagingEffects() |> ignore
+        addMediator commandPipeline queryPipeline eventPipeline services

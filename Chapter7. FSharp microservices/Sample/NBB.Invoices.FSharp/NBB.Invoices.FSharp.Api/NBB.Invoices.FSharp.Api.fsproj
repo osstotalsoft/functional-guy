@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>NBB.Invoices.FSharp.Api.App</AssemblyName>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <UserSecretsId>NBB_Invoices_c9e28d3a-7681-452a-9dbe-a52a9b6a0900</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Giraffe" Version="5.0.0-rc-6" />
+    <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.1.3" />
+    <PackageReference Include="NBB.Messaging.Nats" Version="5.1.3" />
+    <PackageReference Include="Ply" Version="0.3.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Models.fs" />
+    <Compile Include="HttpHandlers.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="web.config" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NBB.Invoices.FSharp\NBB.Invoices.FSharp.fsproj" />
+  </ItemGroup>
+</Project>
