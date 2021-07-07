@@ -7,6 +7,7 @@ open System.Threading.Tasks
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open NBB.Invoices.FSharp.Application
+open NBB.Invoices.FSharp.Data
 open NBB.Messaging.Abstractions
 open NBB.Messaging.Nats
 open NBB.Messaging.Host
@@ -31,8 +32,9 @@ module Program =
             .AddCommandLine(argv)
         |> ignore
 
-    let appServices (context: HostBuilderContext) services = 
+    let appServices (context: HostBuilderContext) services =
         WriteApplication.addServices services |> ignore
+        DataAccess.addServices services |> ignore
 
         services
             .AddMessageBus()
@@ -45,10 +47,7 @@ module Program =
                     (fun configBuilder ->
                         configBuilder
                             .AddSubscriberServices(fun config ->
-                                config.AddTypes(
-                                    typeof<CreateInvoice.Command>,
-                                    typeof<MarkInvoiceAsPayed.Command>
-                                )
+                                config.AddTypes(typeof<CreateInvoice.Command>, typeof<MarkInvoiceAsPayed.Command>)
                                 |> ignore)
                             .WithDefaultOptions()
                             .UsePipeline(fun pipelineBuilder ->
@@ -72,8 +71,9 @@ module Program =
         Host
             .CreateDefaultBuilder(args)
             .ConfigureServices(appServices)
-            .ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder> (appConfig args))
+            .ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder>(appConfig args))
             .ConfigureLogging(Action<HostBuilderContext, ILoggingBuilder> loggingConfig)
+            .UseDefaultServiceProvider(fun _ options -> options.ValidateScopes <- false)
 
 
     [<EntryPoint>]
