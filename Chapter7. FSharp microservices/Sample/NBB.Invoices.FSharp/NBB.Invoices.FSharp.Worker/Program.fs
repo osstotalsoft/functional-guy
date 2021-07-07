@@ -7,6 +7,7 @@ open System.Threading.Tasks
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open NBB.Invoices.FSharp.Application
+open NBB.Invoices.FSharp.Data
 open NBB.Messaging.Abstractions
 open NBB.Messaging.Nats
 open NBB.Messaging.Host
@@ -31,8 +32,9 @@ module Program =
             .AddCommandLine(argv)
         |> ignore
 
-    let appServices (context: HostBuilderContext) services = 
+    let configureServices (context: HostBuilderContext) services = 
         WriteApplication.addServices services |> ignore
+        DataAccess.addServices services |> ignore
 
         services
             .AddMessageBus()
@@ -71,9 +73,10 @@ module Program =
     let createHostBuilder args =
         Host
             .CreateDefaultBuilder(args)
-            .ConfigureServices(appServices)
+            .ConfigureServices(configureServices)
             .ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder> (appConfig args))
             .ConfigureLogging(Action<HostBuilderContext, ILoggingBuilder> loggingConfig)
+            .UseDefaultServiceProvider( fun options -> options.ValidateScopes <- false)
 
 
     [<EntryPoint>]

@@ -10,6 +10,8 @@
     <Compile Include="Application\Invoice.fs" />
     <None Include="Application\Invoice.fsx" />
     <Compile Include="Application\Application.fs" />
+    <Compile Include="Data\InvoiceRepository.fs" />
+    <Compile Include="Data\DependencyInjection.fs" />
   </ItemGroup>
 
   <ItemGroup>

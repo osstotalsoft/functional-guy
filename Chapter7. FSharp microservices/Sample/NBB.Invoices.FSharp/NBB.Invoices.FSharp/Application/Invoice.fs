@@ -14,7 +14,15 @@ module CreateInvoice =
           amount: decimal }
         interface ICommand
 
-    //let validate' (command: Command1) =
+    let validate (command: Command) =
+        effect {
+            if command.amount = 0m then
+                failwith "Empty amount" |> ignore
+                return None
+            else
+                return Some command
+        }
+
     let handle (command: Command) : Effect<unit option> =
         effect {
             let invoice =

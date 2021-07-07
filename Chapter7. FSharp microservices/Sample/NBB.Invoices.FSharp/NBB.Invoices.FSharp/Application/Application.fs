@@ -12,20 +12,9 @@ module Middlewares =
     let logRequest =
         fun next req ->
             effect {
-                Console.WriteLine "before"
-
+                printfn $"Before: {req.GetType().FullName}"
                 let! result = next req
-                Console.WriteLine "after"
-                return result
-            }
-
-    let handleExceptions =
-        fun next req ->
-            effect {
-                Console.WriteLine "try"
-
-                let! result = next req
-                Console.WriteLine "finally"
+                printfn $"After: {req.GetType().FullName}"
                 return result
             }
 
@@ -71,20 +60,18 @@ module MediatorUtils =
 module WriteApplication =
     open RequestMiddleware
     open CommandHandler
+    open RequestHandler
 
     let private commandPipeline : CommandMiddleware =
-        handleExceptions
-        << logRequest
-        << handlers [ CreateInvoice.handle |> upCast
+        logRequest
+        << handlers [ CreateInvoice.validate >=> CreateInvoice.handle |> upCast
                       MarkInvoiceAsPayed.handle |> upCast ]
 
-    let private queryPipeline : QueryMiddleware =
-        handleExceptions << logRequest << handlers []
+    let private queryPipeline : QueryMiddleware = logRequest << handlers []
 
     open EventMiddleware
 
-    let private eventPipeline : EventMiddleware =
-        handleExceptions << logRequest << handlers []
+    let private eventPipeline : EventMiddleware = logRequest << handlers []
 
     let addServices (services: IServiceCollection) =
 
@@ -95,16 +82,13 @@ module WriteApplication =
 module ReadApplication =
     open RequestMiddleware
 
-    let private commandPipeline : CommandMiddleware =
-        handleExceptions << logRequest << publishMessage
+    let private commandPipeline : CommandMiddleware = logRequest << publishMessage
 
-    let private queryPipeline : QueryMiddleware =
-        handleExceptions << logRequest << handlers []
+    let private queryPipeline : QueryMiddleware = logRequest << handlers []
 
     open EventMiddleware
 
-    let private eventPipeline : EventMiddleware =
-        handleExceptions << logRequest << handlers []
+    let private eventPipeline : EventMiddleware = logRequest << handlers []
 
     let addServices (services: IServiceCollection) =
 
