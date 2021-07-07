@@ -33,8 +33,9 @@ module Program =
         |> ignore
 
     let appServices (context: HostBuilderContext) services =
+        let connectionString = context.Configuration.GetConnectionString "DefaultConnection"
         WriteApplication.addServices services |> ignore
-        DataAccess.addServices services |> ignore
+        DataAccess.addServices connectionString services |> ignore
 
         services
             .AddMessageBus()

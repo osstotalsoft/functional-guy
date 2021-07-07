@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="App.config" />
     <Compile Include="Domain\InvoiceAggregate.fs" />
     <Compile Include="Application\Mediator.fs" />
     <Compile Include="Application\Invoice.fs" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FSharp.Data.SqlClient" Version="2.0.7" />
     <PackageReference Include="NBB.Application.Mediator.FSharp" Version="5.1.3" />
     <PackageReference Include="NBB.Core.Effects" Version="5.1.3" />
     <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.1.3" />
