@@ -12,9 +12,6 @@ open NBB.Invoices.FSharp.Api.HttpHandlers
 open NBB.Invoices.FSharp.Application
 open NBB.Messaging.Abstractions
 open NBB.Messaging.Nats
-open Microsoft.Extensions.Configuration
-open System.IO
-open System.Reflection
 
 // ---------------------------------
 // Web app
@@ -38,16 +35,6 @@ let errorHandler (ex: Exception) (logger: ILogger) =
 // ---------------------------------
 // Config and Main
 // ---------------------------------
-
-let configureAppConfiguration (argv: string array) (context: WebHostBuilderContext) (configApp: IConfigurationBuilder) =
-        configApp
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional = true)
-            .AddJsonFile(sprintf "appsettings.%s.json" context.HostingEnvironment.EnvironmentName, optional = true)
-            .AddUserSecrets(Assembly.GetExecutingAssembly())
-            .AddEnvironmentVariables()
-            .AddCommandLine(argv)
-        |> ignore
 
 let configureCors (builder: CorsPolicyBuilder) =
     builder
@@ -91,7 +78,6 @@ let main args =
                 .Configure(Action<IApplicationBuilder> configureApp)
                 .ConfigureServices(configureServices)
                 .ConfigureLogging(configureLogging)
-                .ConfigureAppConfiguration(configureAppConfiguration args)
             |> ignore)
         .Build()
         .Run()

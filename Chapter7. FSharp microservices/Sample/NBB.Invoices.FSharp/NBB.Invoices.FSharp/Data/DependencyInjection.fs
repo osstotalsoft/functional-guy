@@ -6,5 +6,5 @@ open NBB.Core.Effects
 
 let addServices (services: IServiceCollection) = 
     services
-        //.AddSideEffectHandler(InvoiceRepositoryImpl.handle<InvoiceAggregate.Invoice>)
+        .AddSideEffectHandler(InvoiceRepositoryImpl.handle<InvoiceAggregate.Invoice>)
         .AddSideEffectHandler(InvoiceRepositoryImpl.handle<unit>)

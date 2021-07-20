@@ -3,7 +3,6 @@ namespace NBB.Invoices.FSharp.Application
 open NBB.Core.Effects
 open NBB.Core.Effects.FSharp
 open NBB.Application.Mediator.FSharp
-open System
 open Microsoft.Extensions.DependencyInjection
 open NBB.Messaging.Effects
 
@@ -25,38 +24,6 @@ module Middlewares =
                 return Some()
             }
 
-[<AutoOpen>]
-module PipelineUtils =
-    let terminateRequest<'a> : (Effect<'a option> -> Effect<'a>) =
-        Effect.map
-            (function
-            | Some value -> value
-            | None -> failwith "No handler found")
-
-    let terminateEvent : (Effect<unit option> -> Effect<unit>) = Effect.map ignore
-
-[<AutoOpen>]
-module MediatorUtils =
-    let addMediator commandPipeline queryPipeline eventPipeline (services: IServiceCollection) =
-        let sendCommand (cmd: 'TCommand) =
-            CommandMiddleware.run commandPipeline cmd
-            |> terminateRequest
-
-        let publishEvent (ev: 'TEvent) =
-            EventMiddleware.run eventPipeline ev
-            |> terminateEvent
-
-        let sendQuery (q: IQuery) =
-            RequestHandler.empty q |> terminateRequest
-
-        let mediator =
-            { SendCommand = sendCommand
-              SendQuery = sendQuery
-              DispatchEvent = publishEvent }
-
-
-        services.AddSideEffectHandler(Mediator.handleGetMediator mediator)
-
 module WriteApplication =
     open RequestMiddleware
     open CommandHandler
@@ -77,7 +44,7 @@ module WriteApplication =
 
         services.AddEffects() |> ignore
         services.AddMessagingEffects() |> ignore
-        addMediator commandPipeline queryPipeline eventPipeline services
+        services.AddMediator(commandPipeline, queryPipeline, eventPipeline)
 
 module ReadApplication =
     open RequestMiddleware
@@ -94,4 +61,4 @@ module ReadApplication =
 
         services.AddEffects() |> ignore
         services.AddMessagingEffects() |> ignore
-        addMediator commandPipeline queryPipeline eventPipeline services
+        services.AddMediator(commandPipeline, queryPipeline, eventPipeline)

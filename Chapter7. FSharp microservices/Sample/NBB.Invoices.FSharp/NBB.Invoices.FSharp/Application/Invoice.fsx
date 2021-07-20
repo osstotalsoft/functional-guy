@@ -3,7 +3,6 @@
 #r "nuget: NBB.Core.Evented.FSharp"
 
 #load "../Domain/InvoiceAggregate.fs"
-#load "Mediator.fs"
 #load "Invoice.fs"
 
 open NBB.Invoices.FSharp.Application
