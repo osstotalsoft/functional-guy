@@ -1,10 +1,8 @@
-namespace NBB.Invoices.FSharp.Application
+﻿namespace NBB.Invoices.FSharp.Invoice
 
 open System
 open NBB.Core.Effects.FSharp
-open NBB.Invoices.FSharp.Domain.InvoiceAggregate
 open NBB.Core.Evented.FSharp
-open NBB.Invoices.FSharp.Domain
 open NBB.Application.Mediator.FSharp
 
 module CreateInvoice =
@@ -26,7 +24,7 @@ module CreateInvoice =
     let handle (command: Command) : Effect<unit option> =
         effect {
             let invoice =
-                create command.clientId (Some command.contractId) command.amount
+                InvoiceAggregate.create command.clientId (Some command.contractId) command.amount
 
             do!
                 invoice
@@ -49,7 +47,7 @@ module MarkInvoiceAsPayed =
     let handle cmd =
         effect {
             let! invoice = InvoiceRepository.getById cmd.invoiceId
-            let invoice = markAsPayed cmd.paymentId invoice
+            let invoice = InvoiceAggregate.markAsPayed cmd.paymentId invoice
 
             do!
                 invoice

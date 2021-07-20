@@ -1,12 +1,12 @@
 module NBB.Invoices.FSharp.Api.HttpHandlers
 
+open System
 open Microsoft.AspNetCore.Http
 open FSharp.Control.Tasks
 open Giraffe
-open NBB.Invoices.FSharp.Application
 open NBB.Core.Effects
-open System
 open NBB.Application.Mediator.FSharp
+open NBB.Invoices.FSharp.Invoice
 
 
 let asyncCommandResponse : HttpHandler =

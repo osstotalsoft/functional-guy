@@ -1,6 +1,6 @@
-module NBB.Invoices.FSharp.Data.DataAccess
+module NBB.Invoices.FSharp.DataAccess
 
-open NBB.Invoices.FSharp.Domain
+open NBB.Invoices.FSharp.Invoice
 open Microsoft.Extensions.DependencyInjection
 open NBB.Core.Effects
 

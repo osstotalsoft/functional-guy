@@ -2,15 +2,15 @@ namespace NBB.Invoices.FSharp.Worker
 
 open System
 open Microsoft.Extensions.Hosting
-open NBB.Invoices.FSharp.Application
-open NBB.Invoices.FSharp.Data
+open Microsoft.Extensions.Logging
 open NBB.Messaging.Abstractions
 open NBB.Messaging.Nats
 open NBB.Messaging.Host
 open NBB.Messaging.Host.MessagingPipeline
 open NBB.Core.Effects
-open Microsoft.Extensions.Logging
 open NBB.Application.Mediator.FSharp
+open NBB.Invoices.FSharp
+open NBB.Invoices.FSharp.Invoice
 
 module Program =
 

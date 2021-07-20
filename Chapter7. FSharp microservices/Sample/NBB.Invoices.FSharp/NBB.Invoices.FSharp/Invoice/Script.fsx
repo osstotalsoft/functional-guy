@@ -2,10 +2,10 @@
 #r "nuget: NBB.Core.Effects.FSharp"
 #r "nuget: NBB.Core.Evented.FSharp"
 
-#load "../Domain/InvoiceAggregate.fs"
-#load "Invoice.fs"
+#load "Domain.fs"
+#load "Application.fs"
 
-open NBB.Invoices.FSharp.Application
+open NBB.Invoices.FSharp.Invoice
 open System
 
 open CreateInvoice

@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Domain\InvoiceAggregate.fs" />
-    <Compile Include="Application\Invoice.fs" />
-    <None Include="Application\Invoice.fsx" />
-    <Compile Include="Application\Application.fs" />
-    <Compile Include="Data\InvoiceRepository.fs" />
-    <Compile Include="Data\DependencyInjection.fs" />
+    <Compile Include="Invoice\Domain.fs" />
+    <Compile Include="Invoice\Application.fs" />
+    <Compile Include="Invoice\Data.fs" />
+    <None Include="Invoice\Script.fsx" />
+    <Compile Include="Application.fs" />
+    <Compile Include="DataAccess.fs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,14 +1,12 @@
-namespace NBB.Invoices.FSharp.Data
+﻿namespace NBB.Invoices.FSharp.Invoice
 
-open NBB.Invoices.FSharp.Domain
-open InvoiceRepository
 open InvoiceAggregate
 open System
 
 module InvoiceRepositoryImpl =
     let handle<'a> (sideEffect: InvoiceRepository.SideEffect<'a>) : 'a =
         match sideEffect with
-        | GetById (invoiceId, cont) ->
+        | InvoiceRepository.GetById (invoiceId, cont) ->
             let invoice =
                 { Id = Guid.NewGuid()
                   ClientId = Guid.NewGuid()
@@ -19,6 +17,6 @@ module InvoiceRepositoryImpl =
             printfn $"InvoiceRepositoryImpl.GetById {invoiceId} => {invoice}"
 
             invoice |> cont
-        | Save (invoice, cont) ->
+        | InvoiceRepository.Save (invoice, cont) ->
             printfn $"InvoiceRepositoryImpl.Save {invoice}"
             cont ()

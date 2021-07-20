@@ -1,4 +1,4 @@
-﻿namespace NBB.Invoices.FSharp.Domain
+﻿namespace NBB.Invoices.FSharp.Invoice
 
 open System
 open NBB.Core.Evented.FSharp

@@ -1,10 +1,11 @@
-namespace NBB.Invoices.FSharp.Application
+namespace NBB.Invoices.FSharp
 
 open NBB.Core.Effects
 open NBB.Core.Effects.FSharp
 open NBB.Application.Mediator.FSharp
 open Microsoft.Extensions.DependencyInjection
 open NBB.Messaging.Effects
+open NBB.Invoices.FSharp.Invoice
 
 [<AutoOpen>]
 module Middlewares =
@@ -58,7 +59,6 @@ module ReadApplication =
     let private eventPipeline : EventMiddleware = logRequest << handlers []
 
     let addServices (services: IServiceCollection) =
-
         services.AddEffects() |> ignore
         services.AddMessagingEffects() |> ignore
         services.AddMediator(commandPipeline, queryPipeline, eventPipeline)

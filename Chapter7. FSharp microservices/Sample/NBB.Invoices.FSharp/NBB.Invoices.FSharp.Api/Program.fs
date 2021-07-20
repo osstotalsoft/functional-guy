@@ -8,8 +8,8 @@ open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
+open NBB.Invoices.FSharp
 open NBB.Invoices.FSharp.Api.HttpHandlers
-open NBB.Invoices.FSharp.Application
 open NBB.Messaging.Abstractions
 open NBB.Messaging.Nats
 
