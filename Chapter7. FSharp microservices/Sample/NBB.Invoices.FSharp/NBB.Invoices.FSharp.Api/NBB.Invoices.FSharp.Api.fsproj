@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,8 +7,8 @@
 
   <ItemGroup>
     <PackageReference Include="Giraffe" Version="5.0.0-rc-6" />
-    <PackageReference Include="NBB.Core.Effects.FSharp" Version="5.2.0" />
-    <PackageReference Include="NBB.Messaging.Nats" Version="5.2.0" />
+    <PackageReference Include="NBB.Core.Effects.FSharp" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="Ply" Version="0.3.*" />
   </ItemGroup>
 

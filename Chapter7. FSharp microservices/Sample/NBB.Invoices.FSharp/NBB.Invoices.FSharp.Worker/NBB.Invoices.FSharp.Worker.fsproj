@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -12,9 +12,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-    <PackageReference Include="NBB.Messaging.Abstractions" Version="5.2.0" />
-    <PackageReference Include="NBB.Messaging.Host" Version="5.2.0" />
-    <PackageReference Include="NBB.Messaging.Nats" Version="5.2.0" />
+    <PackageReference Include="NBB.Messaging.Abstractions" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Messaging.Host" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" />
   </ItemGroup>
 
   <ItemGroup>
