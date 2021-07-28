@@ -24,7 +24,8 @@ module InvoiceRepositoryImpl =
             do! conn.OpenAsync(cancellationToken)
 
             let query =
-                "SELECT InvoiceId, ClientId, ContractId, Amount, PaymentId FROM FS_Invoices WHERE InvoiceId = @InvoiceId"
+                "SELECT InvoiceId, ClientId, ContractId, Amount, PaymentId
+                FROM FS_Invoices WHERE InvoiceId = @InvoiceId"
 
             use cmd = new SqlCommand(query, conn)
 
@@ -56,17 +57,17 @@ module InvoiceRepositoryImpl =
             do! conn.OpenAsync(cancellationToken)
 
             let query =
-                @"IF NOT EXISTS(SELECT 1 FROM FS_Invoices WHERE InvoiceId = @InvoiceId)
-    BEGIN
-    	INSERT INTO FS_Invoices(InvoiceId, ClientId, ContractId, Amount, PaymentId)
-    	SELECT @InvoiceId, @ClientId, @ContractId, @Amount, @PaymentId
-    END
-    ELSE
-    BEGIN
-    	UPDATE FS_Invoices
-    	SET ClientId = @ClientId, ContractId = @ContractId, Amount = @Amount, PaymentId = @PaymentId
-    	WHERE InvoiceId = @InvoiceId
-    END"
+                "IF NOT EXISTS(SELECT 1 FROM FS_Invoices WHERE InvoiceId = @InvoiceId)
+                BEGIN
+                	INSERT INTO FS_Invoices(InvoiceId, ClientId, ContractId, Amount, PaymentId)
+                	SELECT @InvoiceId, @ClientId, @ContractId, @Amount, @PaymentId
+                END
+                ELSE
+                BEGIN
+                	UPDATE FS_Invoices
+                	SET ClientId = @ClientId, ContractId = @ContractId, Amount = @Amount, PaymentId = @PaymentId
+                	WHERE InvoiceId = @InvoiceId
+                END"
 
             use cmd = new SqlCommand(query, conn)
 
