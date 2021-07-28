@@ -52,7 +52,7 @@ module InvoiceRepository =
     open InvoiceAggregate
 
     type SideEffect<'a> =
-        | GetById of InvoiceId: Guid * Continuation: (Invoice -> 'a)
+        | GetById of InvoiceId: Guid * Continuation: (Invoice option -> 'a)
         | Save of Invoice: Invoice * Continuation: (unit -> 'a)
         interface ISideEffect<'a>
 

@@ -19,6 +19,8 @@
     <PackageReference Include="NBB.Core.Effects.FSharp" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Core.Evented.FSharp" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Effects" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="Ply" Version="0.3.*" />
   </ItemGroup>
 
 </Project>

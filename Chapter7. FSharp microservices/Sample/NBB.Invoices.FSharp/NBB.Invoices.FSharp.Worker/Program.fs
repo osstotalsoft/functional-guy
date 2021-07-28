@@ -1,6 +1,7 @@
 namespace NBB.Invoices.FSharp.Worker
 
 open System
+open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open NBB.Messaging.Abstractions
@@ -17,8 +18,9 @@ module Program =
     // App configuration
 
     let configureServices (context: HostBuilderContext) services = 
+        let connectionString = context.Configuration.GetConnectionString "DefaultConnection"
         WriteApplication.addServices services |> ignore
-        DataAccess.addServices services |> ignore
+        DataAccess.addServices connectionString services  |> ignore
 
         services
             .AddMessageBus()
