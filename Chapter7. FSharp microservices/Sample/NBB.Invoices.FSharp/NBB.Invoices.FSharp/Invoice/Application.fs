@@ -47,7 +47,12 @@ module MarkInvoiceAsPayed =
     let handle cmd =
         effect {
             let! invoice = InvoiceRepository.getById cmd.invoiceId
-            let invoice = InvoiceAggregate.markAsPayed cmd.paymentId invoice
+
+            if invoice.IsNone then
+                failwith $"Invoice with InvoiceId {cmd.invoiceId} not found!"
+
+            let invoice =
+                InvoiceAggregate.markAsPayed cmd.paymentId invoice.Value
 
             do!
                 invoice

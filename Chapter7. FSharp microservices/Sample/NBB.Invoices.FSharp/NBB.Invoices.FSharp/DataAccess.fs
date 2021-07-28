@@ -4,7 +4,7 @@ open NBB.Invoices.FSharp.Invoice
 open Microsoft.Extensions.DependencyInjection
 open NBB.Core.Effects
 
-let addServices (services: IServiceCollection) = 
+let addServices connectionString (services: IServiceCollection) = 
     services
-        .AddSideEffectHandler(InvoiceRepositoryImpl.handle<InvoiceAggregate.Invoice>)
-        .AddSideEffectHandler(InvoiceRepositoryImpl.handle<unit>)
+        .AddSideEffectHandler(InvoiceRepositoryImpl.handle<InvoiceAggregate.Invoice option> connectionString)
+        .AddSideEffectHandler(InvoiceRepositoryImpl.handle<unit> connectionString)

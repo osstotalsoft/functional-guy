@@ -2,21 +2,112 @@
 
 open InvoiceAggregate
 open System
+open Microsoft.Data.SqlClient
+open FSharp.Control.Tasks
+open System.Threading.Tasks
 
 module InvoiceRepositoryImpl =
-    let handle<'a> (sideEffect: InvoiceRepository.SideEffect<'a>) : 'a =
+
+    let unboxOption<'a> (o: obj) : 'a option =
+        if (isNull o) || DBNull.Value.Equals o then
+            None
+        else
+            Some(unbox o)
+
+    let boxOption<'a> (x: 'a option) =
+        match x with
+        | Some y -> box y
+        | None -> box DBNull.Value
+
+    let getById connectionString (invoiceId: Guid) cancellationToken : Task<Invoice option> =
+        task {
+            use conn = new SqlConnection(connectionString)
+            do! conn.OpenAsync(cancellationToken)
+
+            let query =
+                "SELECT InvoiceId, ClientId, ContractId, Amount, PaymentId
+                    FROM FS_Invoices WHERE InvoiceId = @InvoiceId"
+
+            use cmd = new SqlCommand(query, conn)
+
+            cmd.Parameters.AddWithValue("@InvoiceId", invoiceId)
+            |> ignore
+
+            let! r = cmd.ExecuteReaderAsync(cancellationToken)
+
+            let results =
+                [ while r.Read() do
+                      yield
+                          { Id = unbox r.[0]
+                            ClientId = unbox r.[1]
+                            ContractId = unboxOption r.[2]
+                            Amount = unbox r.[3]
+                            PaymentId = unboxOption r.[4] } ]
+
+            return
+                if results.IsEmpty then
+                    None
+                else
+                    results.Head |> Some
+        }
+
+
+    let save connectionString invoice cancellationToken =
+        task {
+            use conn = new SqlConnection(connectionString)
+            do! conn.OpenAsync(cancellationToken)
+
+            let query =
+                "IF NOT EXISTS(SELECT 1 FROM FS_Invoices WHERE InvoiceId = @InvoiceId)
+                BEGIN
+                	INSERT INTO FS_Invoices(InvoiceId, ClientId, ContractId, Amount, PaymentId)
+                	SELECT @InvoiceId, @ClientId, @ContractId, @Amount, @PaymentId
+                END
+                ELSE
+                BEGIN
+                	UPDATE FS_Invoices
+                	SET ClientId = @ClientId, ContractId = @ContractId, Amount = @Amount, PaymentId = @PaymentId
+                	WHERE InvoiceId = @InvoiceId
+                END"
+
+            use cmd = new SqlCommand(query, conn)
+
+            cmd.Parameters.AddWithValue("@InvoiceId", invoice.Id)
+            |> ignore
+
+            cmd.Parameters.AddWithValue("@ClientId", invoice.ClientId)
+            |> ignore
+
+            cmd.Parameters.AddWithValue("@ContractId", invoice.ContractId |> boxOption)
+            |> ignore
+
+            cmd.Parameters.AddWithValue("@Amount", invoice.Amount)
+            |> ignore
+
+            cmd.Parameters.AddWithValue("@PaymentId", invoice.PaymentId |> boxOption)
+            |> ignore
+
+            let! _ = cmd.ExecuteNonQueryAsync(cancellationToken)
+            return ()
+        }
+
+
+
+
+    let handle<'a> connectionString (sideEffect: InvoiceRepository.SideEffect<'a>) cancellationToken : Task<'a> =
         match sideEffect with
         | InvoiceRepository.GetById (invoiceId, cont) ->
-            let invoice =
-                { Id = Guid.NewGuid()
-                  ClientId = Guid.NewGuid()
-                  ContractId = Guid.NewGuid() |> Some
-                  Amount = 100m
-                  PaymentId = None }
+            task {
+                let! invoice = getById connectionString invoiceId cancellationToken
 
-            printfn $"InvoiceRepositoryImpl.GetById {invoiceId} => {invoice}"
+                printfn $"InvoiceRepositoryImpl.GetById {invoiceId} => {invoice}"
 
-            invoice |> cont
+                return invoice |> cont
+            }
         | InvoiceRepository.Save (invoice, cont) ->
-            printfn $"InvoiceRepositoryImpl.Save {invoice}"
-            cont ()
+            task {
+                printfn $"InvoiceRepositoryImpl.Save {invoice}"
+                do! save connectionString invoice cancellationToken
+                return cont ()
+            }
+            
