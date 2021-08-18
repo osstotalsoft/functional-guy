@@ -1,6 +1,6 @@
 import { ValidationResult } from '../algebra'
 import { required, email } from '../primitiveValidators'
-import { map, inc, toUpper, composeK, chain } from 'ramda'
+import { map, inc, toUpper, composeK } from 'ramda'
 
 const { Success, Failure } = ValidationResult;
 
