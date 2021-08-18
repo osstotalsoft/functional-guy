@@ -32,6 +32,8 @@ During our meetings and presentations we will try to connect our ideas with impl
   - [`Chapter4. IO in Haskell`](./Chapter4.%20IO%20in%20Haskell#readme)
   - [`Chapter5. Functors Applicatives & Monads`](./Chapter5.%20Functors%20Applicatives%20%26%20Monads#readme)
   - [`Chapter6. Computational effects`](./Chapter6.%20Computational%20effects#readme)
+  - [`Chapter7. FSharp microservices`](./Chapter7.%20FSharp%20microservices#readme)
+  - [`Chapter8. JavaScript libraries`](./Chapter8.%20JavaScript%20libraries#readme)
 
 ## Computability theory
   - [David Hilbert](https://en.wikipedia.org/wiki/David_Hilbert)
