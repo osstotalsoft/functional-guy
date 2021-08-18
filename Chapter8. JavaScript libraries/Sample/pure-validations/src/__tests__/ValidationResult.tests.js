@@ -1,16 +1,18 @@
 import { ValidationResult } from '../algebra'
 import { required, email } from '../primitiveValidators'
-import { map, inc, identity, composeK } from 'ramda'
+import { map, inc, toUpper, composeK, chain } from 'ramda'
 
 const { Success, Failure } = ValidationResult;
 
 describe("ValidationResult tests:", () => {
     it("Functor map: ", () => {
         expect(Success(7) |> map(inc)).toStrictEqual(Success(8))
-        expect(Failure(["some", "msgs"]) |> map(identity)).toStrictEqual(Failure(["some", "msgs"]))
+        expect(Failure(["some", "msgs"]) |> map(toUpper)).toStrictEqual(Failure(["some", "msgs"]))
     })
 
     it("Monad bind: ", () => {
-        expect("wrongEmail" |> composeK(required, email)).toStrictEqual(Failure("not an email"))
+        const composedValidator = composeK(email, required)
+        expect("" |> composedValidator).toStrictEqual(Failure(["required"]))
+        expect("sss" |> composedValidator).toStrictEqual(Failure(["not an email"]))
     })
 })

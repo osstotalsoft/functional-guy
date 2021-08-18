@@ -1,6 +1,6 @@
 import { taggedSum } from "daggy"
 import * as fl from "fantasy-land"
-import { map, compose } from "ramda"
+import { map, compose, concat } from "ramda"
 
 //data ValidationResult a  =  Success a | Failure [String]
 export const ValidationResult = taggedSum("ValidationResult", {
@@ -22,8 +22,11 @@ const { Success, Failure } = ValidationResult;
 /* Apply ValidationResult */ {
     ValidationResult.prototype[fl.ap] = function (fn) {
         return this.cata({
-            Success: x => fn |> map(f => f(x)),
-            Failure: Failure
+            Success: a => fn |> map(f => f(a)),
+            Failure: errors => fn.cata({
+                Success: _ => Failure(errors),
+                Failure: errors2 => Failure(concat(errors, errors2))
+            })
         })
     }
 }
@@ -36,7 +39,7 @@ const { Success, Failure } = ValidationResult;
     ValidationResult.prototype[fl.chain] = function (f) {
         return this.cata({
             Success: f,
-            Failure: Failure
+            Failure: errors => Failure(errors)
         })
     }
 }
