@@ -1,0 +1,12 @@
+{
+  "name": "rules-algebra",
+  "version": "1.0.0",
+  "description": "An algebra of domain rules",
+  "main": "y",
+  "author": "Functional Guy",
+  "license": "y",
+  "dependencies": {
+    "daggy": "^1.5.0",
+    "fantasy-land": "^5.0.0"
+  }
+}
