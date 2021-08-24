@@ -8,5 +8,6 @@ describe("combinators tests:", () => {
     it("stopOnFirstFailure: ", () => {
         const validator = stopOnFirstFailure([required, email])
         expect(validator(null)).toStrictEqual(Failure(["required"]))
+        expect(validator("notAnEmail")).toStrictEqual(Failure(["not an email"]))
     })
 })

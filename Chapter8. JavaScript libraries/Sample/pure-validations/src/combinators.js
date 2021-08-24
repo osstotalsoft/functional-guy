@@ -1,7 +1,7 @@
-import { composeK, flip, reduce } from 'ramda'
+import { composeK as _composeK, flip, reduce } from 'ramda'
 import { ValidationResult } from './algebra'
 
 const { Success } = ValidationResult
-const myComposeK = flip(composeK)
+const composeK = flip(_composeK)
 
-export const stopOnFirstFailure = reduce(myComposeK, Success)
+export const stopOnFirstFailure = reduce(composeK, Success)
