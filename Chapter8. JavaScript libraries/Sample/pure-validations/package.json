@@ -11,7 +11,8 @@
   "dependencies": {
     "daggy": "^1.5.0",
     "fantasy-land": "^5.0.0",
-    "ramda": "^0.27.1"
+    "ramda": "^0.27.1",
+    "@totalsoft/zion": "^5.0.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

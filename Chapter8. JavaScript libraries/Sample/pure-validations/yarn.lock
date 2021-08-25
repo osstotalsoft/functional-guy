@@ -1228,6 +1228,16 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
+"@totalsoft/zion@^5.0.9":
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@totalsoft/zion/-/zion-5.0.9.tgz#07ce61f0101a95716d59a333dfe579f2c06e3f11"
+  integrity sha512-Jnl3IoArH6oyDf25+eYdG3VVtJvNEQzyDSAdC/sAC761ZTkgx39Boap/3UOd0HUXVVTpwycAbf4QmsUSDIzLcA==
+  dependencies:
+    daggy "^1.4.0"
+    fantasy-land "^4.1.0"
+    immutagen "^1.0.9"
+    ramda "^0.26.1"
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.7":
   version "7.1.15"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.15.tgz#2ccfb1ad55a02c83f8e0ad327cbc332f55eb1024"
@@ -2130,7 +2140,7 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-daggy@^1.5.0:
+daggy@^1.4.0, daggy@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/daggy/-/daggy-1.5.0.tgz#82d9818a614e018a7ebb68f53a10970493293ee8"
   integrity sha512-BQMsnneUmsqvPth/o+Cv9JPhQwjR0aqzDckMxH0tAdupsdFkePKVFFvhoB7HDtMnOJDxA/U4994MV/bNSJ28gw==
@@ -2667,6 +2677,11 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+fantasy-land@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/fantasy-land/-/fantasy-land-4.1.0.tgz#bfb7cd58dd88548dca5f4c25e20f5e2981e7c690"
+  integrity sha512-bmukPWTlviPDc2qpoLDJ6sBKCngRdYBNXG1ZuKcf0yoLpx3ENe9sD58/GKu8RAf9+RKeGAJNyBjiCuRMnW2PIA==
+
 fantasy-land@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/fantasy-land/-/fantasy-land-5.0.0.tgz#3e20d8b111b9c41fef08721c19e69ac66a8a99c5"
@@ -3048,6 +3063,11 @@ ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
+
+immutagen@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/immutagen/-/immutagen-1.0.9.tgz#f01c1473cf062afc4054fe487308368924f56497"
+  integrity sha512-9jzD2EVaXxJ9+jX9QXBYL6JMIKALlEExW/ZXOnedG+cAuhp43eyPNgYbAIzPbEJL9LkyQ4Qloh7JuyVZrwaQbg==
 
 import-fresh@^3.0.0:
   version "3.3.0"
@@ -4730,6 +4750,11 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 ramda@^0.27.1:
   version "0.27.1"
