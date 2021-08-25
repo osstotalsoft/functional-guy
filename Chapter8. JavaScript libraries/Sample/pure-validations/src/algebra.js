@@ -25,7 +25,7 @@ const { Success, Failure } = ValidationResult;
             Success: a => fn |> map(f => f(a)),
             Failure: errors => fn.cata({
                 Success: _ => Failure(errors),
-                Failure: errors2 => Failure(concat(errors, errors2))
+                Failure: errors2 => Failure(concat(errors2, errors))
             })
         })
     }
