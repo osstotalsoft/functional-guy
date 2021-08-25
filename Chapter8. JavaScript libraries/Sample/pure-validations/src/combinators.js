@@ -1,8 +1,8 @@
-import { composeK as _composeK, flip, reduce, liftN, always, identity, apply, map, applyTo, curry, toPairs, length, range, subtract } from 'ramda'
+import { composeK as _composeK, flip, reduce, liftN, always, identity, apply, map, applyTo, curry, toPairs, length, range, concat } from 'ramda'
 import { ValidationResult } from './algebra'
 import { $do } from '@totalsoft/zion'
 
-const { Success } = ValidationResult
+const { Success, Failure } = ValidationResult
 const composeK = flip(_composeK)
 
 export const stopOnFirstFailure = reduce(composeK, Success)
@@ -14,9 +14,17 @@ const concatFailure2 = (v1, v2) => x =>
 
 export const concatFailure = reduce(concatFailure2, Success)
 
+export const error = curry((errorsMapFn, v) => x =>
+    v(x).cata({
+        Success: Success,
+        Failure: errors => Failure(errors |> errorsMapFn)
+    })
+)
+
 export const field = curry((key, fieldValidator) => x => $do(function* () {
     const fieldValue = x[key]
-    yield fieldValidator(fieldValue)
+    const v = fieldValidator|> error(map(concat(`${key}: `)))
+    yield v(fieldValue)
     return x
 }))
 
