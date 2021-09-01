@@ -1,12 +1,8 @@
-import { curry, identity, reduce, flip } from 'ramda';
+import { curry, flip, reduce } from 'ramda'
 
-// function empty(_ctx, next) {
-//     return next();
-// }
+export const run = curry((ctx, middleware) => middleware(ctx, () => Promise.resolve()))
 
-export const run = curry((ctx, middleware) => middleware(ctx, Promise.resolve))
-
-export const empty = () => identity
+export const empty = curry((_ctx, next) => next())
 
 export const append = curry((left, right, ctx, next) => left(ctx, () => right(ctx, next)))
 
@@ -14,11 +10,4 @@ export const use = flip(append)
 
 export const concat = reduce(append, empty)
 
-export const parallel = (first, second) => async (ctx, next) => {
-    await (first |> run(ctx))
-    await (second |> run(ctx))
-    await next
-}
-
-
-
+export const parallel = curry((first, second, ctx, next) => Promise.all([first |> run(ctx), second |> run(ctx)]).then(_ => next()))
