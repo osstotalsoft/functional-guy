@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es5",
+      "lib": ["es6", "dom"],
+      "jsx": "react",
+      "moduleResolution": "node",
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "noEmit": true,
+      "experimentalDecorators": true,
+      "baseUrl": "./",
+      "allowSyntheticDefaultImports": true,
+      "noErrorTruncation": true,
+      "allowJs": true,
+      "paths": {
+        // "@totalsoft/change-tracking": ["./packages/change-tracking/src"],
+        // "@totalsoft/change-tracking-react": ["./packages/change-tracking-react/src"],
+        // "@totalsoft/pipeline-algebra": ["./packages/pipeline-algebra/src"],
+        // "@totalsoft/pipeline-algebra-react": ["./packages/pipeline-algebra-react/src"],
+        // "@totalsoft/rules-algebra": ["./packages/rules-algebra/src"],
+        // "@totalsoft/rules-algebra-react": ["./packages/rules-algebra-react/src"],
+        // "@totalsoft/react-state-lens": ["./packages/react-state-lens/src"],
+        // "@totalsoft/react-state-lens/lensProxy": ["./packages/react-state-lens/src/lensProxy"],
+        // "@totalsoft/zion": ["./packages/zion/src"],
+        // "@totalsoft/zion/*": ["./packages/zion/src/*"]
+      }
+    },
+    "exclude": ["**/build/", "**/node_modules"]
+  }

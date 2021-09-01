@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./",
+      "paths": {
+        // "@totalsoft/zion": ["./packages/zion/src"],
+        // "@totalsoft/zion/*": ["./packages/zion/src/*"],
+        // "@totalsoft/react-state-lens": ["./packages/react-state-lens/src"],
+        // "@totalsoft/react-state-lens/*": ["./packages/react-state-lens/src/*"]
+      }
+    }
+  }
